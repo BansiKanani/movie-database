@@ -59,4 +59,42 @@ public class Movie {
 	
     @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
     private Set<MovieReview> movieReview;
+    
+    @ManyToMany(mappedBy = "wishlist")
+    private Set<User> wishlistedBy;
+
+	public Movie(String name, int length, long boxOffice, long budget, String censorRating, String story,
+			Date releaseDate, Date runTime, Director director, Production production, Set<Actor> writers,
+			Set<Actor> actors, Set<Language> languages, Set<Genre> genres, Set<MovieAward> movieAwards,
+			Set<MovieReview> movieReview, Set<User> wishlistedBy) {
+		super();
+		this.name = name;
+		this.length = length;
+		this.boxOffice = boxOffice;
+		this.budget = budget;
+		this.censorRating = censorRating;
+		this.story = story;
+		this.releaseDate = releaseDate;
+		this.runTime = runTime;
+		this.director = director;
+		this.production = production;
+		this.writers = writers;
+		this.actors = actors;
+		this.languages = languages;
+		this.genres = genres;
+		this.movieAwards = movieAwards;
+		this.movieReview = movieReview;
+		this.wishlistedBy = wishlistedBy;
+	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", name=" + name + ", length=" + length + ", boxOffice=" + boxOffice + ", budget="
+				+ budget + ", censorRating=" + censorRating + ", story=" + story + ", releaseDate=" + releaseDate
+				+ ", runTime=" + runTime + ", director=" + director + ", production=" + production + ", writers="
+				+ writers + ", actors=" + actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards="
+				+ movieAwards + ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
+	}
+    
+    
 }
