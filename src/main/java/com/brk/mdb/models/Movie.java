@@ -1,5 +1,6 @@
 package com.brk.mdb.models;
 
+import java.util.Date;
 import java.util.Set;
 
 import javax.persistence.*;
@@ -14,18 +15,32 @@ public class Movie {
 	private long id;
 
 	private String name;
+
 	private int length;
+
+	private long boxOffice;
+	private long budget;
+
+	private String censorRating;
+	private String story;
+
+	@Temporal(TemporalType.DATE)
+	private Date releaseDate;
+
+	@Temporal(TemporalType.TIME)
+	private Date runTime;
 
 	@ManyToOne
 	@JoinColumn(name = "director_id")
 	private Director director;
-	
+
 	@ManyToOne
 	@JoinColumn(name = "production_id")
 	private Production production;
 
-	@ManyToOne
-	private Writer writer;
+	@ManyToMany
+	@JoinTable(name = "movie_writer", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "writer_id"))
+	private Set<Actor> writers;
 
 	@ManyToMany
 	@JoinTable(name = "movie_actor", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
@@ -39,10 +54,9 @@ public class Movie {
 	@JoinTable(name = "movie_genre", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "genre_id"))
 	private Set<Genre> genres;
 
-	public Movie(String name, int length, Director director, Writer writer) {
-		super();
-		this.name = name;
-		this.length = length;
-		this.director = director;
-	}
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    private Set<MovieAward> movieAwards;
+	
+    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+    private Set<MovieReview> movieReview;
 }

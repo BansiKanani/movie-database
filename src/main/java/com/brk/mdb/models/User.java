@@ -1,6 +1,6 @@
 package com.brk.mdb.models;
 
-import java.util.List;
+import java.util.Set;
 
 import javax.persistence.*;
 
@@ -17,9 +17,9 @@ public class User {
 	private String name;
 	private String email;
 	
-	@OneToMany
-	private List<Movie> moviesmade;
-
+	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
+	private Set<MovieReview> movieReviews;
+	
 	public User(String name, String email) {
 		super();
 		this.name = name;

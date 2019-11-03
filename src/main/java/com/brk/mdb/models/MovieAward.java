@@ -1,13 +1,17 @@
 package com.brk.mdb.models;
 
+import java.util.Date;
 import javax.persistence.Entity;
 import javax.persistence.Id;
 import javax.persistence.ManyToOne;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import lombok.Data;
 
 @Data
 @Entity
-public class MovieReview {
+public class MovieAward {
 
 	@Id
 	@ManyToOne
@@ -15,17 +19,16 @@ public class MovieReview {
 
 	@Id
 	@ManyToOne
-	private Award user;
+	private Award award;
 
-	private int ratting;
-	private String comment;
+	@Temporal(TemporalType.DATE)
+	private Date date;
 
-	public MovieReview(Movie movie, Award user, int ratting, String comment) {
+	public MovieAward(Movie movie, Award award, Date date) {
 		super();
 		this.movie = movie;
-		this.user = user;
-		this.ratting = ratting;
-		this.comment = comment;
+		this.award = award;
+		this.date = date;
 	}
 
 	@Override
@@ -36,23 +39,21 @@ public class MovieReview {
 			return false;
 		if (getClass() != obj.getClass())
 			return false;
-		MovieReview other = (MovieReview) obj;
-		if (comment == null) {
-			if (other.comment != null)
+		MovieAward other = (MovieAward) obj;
+		if (award == null) {
+			if (other.award != null)
 				return false;
-		} else if (!comment.equals(other.comment))
+		} else if (!award.equals(other.award))
+			return false;
+		if (date == null) {
+			if (other.date != null)
+				return false;
+		} else if (!date.equals(other.date))
 			return false;
 		if (movie == null) {
 			if (other.movie != null)
 				return false;
 		} else if (!movie.equals(other.movie))
-			return false;
-		if (ratting != other.ratting)
-			return false;
-		if (user == null) {
-			if (other.user != null)
-				return false;
-		} else if (!user.equals(other.user))
 			return false;
 		return true;
 	}
@@ -61,10 +62,9 @@ public class MovieReview {
 	public int hashCode() {
 		final int prime = 31;
 		int result = 1;
-		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
+		result = prime * result + ((award == null) ? 0 : award.hashCode());
+		result = prime * result + ((date == null) ? 0 : date.hashCode());
 		result = prime * result + ((movie == null) ? 0 : movie.hashCode());
-		result = prime * result + ratting;
-		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
 }
