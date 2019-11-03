@@ -2,7 +2,12 @@ package com.brk.mdb.Services;
 
 import java.util.List;
 
+import com.brk.mdb.models.Actor;
+import com.brk.mdb.models.Director;
+import com.brk.mdb.models.Genre;
+import com.brk.mdb.models.Language;
 import com.brk.mdb.models.Movie;
+import com.brk.mdb.models.Writer;
 
 public interface MovieService {
 	
