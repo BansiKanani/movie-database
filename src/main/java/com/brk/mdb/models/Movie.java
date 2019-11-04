@@ -16,7 +16,7 @@ public class Movie {
 
 	private String name;
 
-	private int length;
+	private int runTime;
 
 	private long boxOffice;
 	private long budget;
@@ -26,9 +26,6 @@ public class Movie {
 
 	@Temporal(TemporalType.DATE)
 	private Date releaseDate;
-
-	@Temporal(TemporalType.TIME)
-	private Date runTime;
 
 	@ManyToOne
 	@JoinColumn(name = "director_id")
@@ -54,28 +51,27 @@ public class Movie {
 	@JoinTable(name = "movie_genre", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "genre_id"))
 	private Set<Genre> genres;
 
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private Set<MovieAward> movieAwards;
-	
-    @OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-    private Set<MovieReview> movieReview;
-    
-    @ManyToMany(mappedBy = "wishlist")
-    private Set<User> wishlistedBy;
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+	private Set<MovieAward> movieAwards;
 
-	public Movie(String name, int length, long boxOffice, long budget, String censorRating, String story,
-			Date releaseDate, Date runTime, Director director, Production production, Set<Actor> writers,
-			Set<Actor> actors, Set<Language> languages, Set<Genre> genres, Set<MovieAward> movieAwards,
-			Set<MovieReview> movieReview, Set<User> wishlistedBy) {
+	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
+	private Set<MovieReview> movieReview;
+
+	@ManyToMany(mappedBy = "wishlist")
+	private Set<User> wishlistedBy;
+
+	public Movie(String name, int runTime, long boxOffice, long budget, String censorRating, String story,
+			Date releaseDate, Director director, Production production, Set<Actor> writers, Set<Actor> actors,
+			Set<Language> languages, Set<Genre> genres, Set<MovieAward> movieAwards, Set<MovieReview> movieReview,
+			Set<User> wishlistedBy) {
 		super();
 		this.name = name;
-		this.length = length;
+		this.runTime = runTime;
 		this.boxOffice = boxOffice;
 		this.budget = budget;
 		this.censorRating = censorRating;
 		this.story = story;
 		this.releaseDate = releaseDate;
-		this.runTime = runTime;
 		this.director = director;
 		this.production = production;
 		this.writers = writers;
@@ -89,12 +85,11 @@ public class Movie {
 
 	@Override
 	public String toString() {
-		return "Movie [id=" + id + ", name=" + name + ", length=" + length + ", boxOffice=" + boxOffice + ", budget="
+		return "Movie [id=" + id + ", name=" + name + ", runTime=" + runTime + ", boxOffice=" + boxOffice + ", budget="
 				+ budget + ", censorRating=" + censorRating + ", story=" + story + ", releaseDate=" + releaseDate
-				+ ", runTime=" + runTime + ", director=" + director + ", production=" + production + ", writers="
-				+ writers + ", actors=" + actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards="
-				+ movieAwards + ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
+				+ ", director=" + director + ", production=" + production + ", writers=" + writers + ", actors="
+				+ actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards=" + movieAwards
+				+ ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
 	}
-    
-    
+
 }
