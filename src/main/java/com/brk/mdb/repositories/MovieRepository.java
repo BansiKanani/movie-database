@@ -25,12 +25,16 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 	List<Movie> findByBoxOfficeGreaterThanEqual(long boxOffice);
 
 	List<Movie> findByBoxOfficeLessThanEqual(long boxOffice);
+	
+	List<Movie> findByBoxOfficeGreaterThanEqualAndBoxOfficeLessThanEqual(int min, int max);
 
 	// budget
-	List<Movie> findByBudgetGreaterThanEqual(long boxOffice);
+	List<Movie> findByBudgetGreaterThanEqual(long budget);
 
 	List<Movie> findByBudgetLessThanEqual(long budget);
 
+	List<Movie> findByBudgetGreaterThanEqualAndBudgetLessThanEqual(int min, int max);
+	
 	// censor rating
 	List<Movie> findByCensorRating(String censorRating);
 
@@ -40,11 +44,5 @@ public interface MovieRepository extends JpaRepository<Movie, Long> {
 	List<Movie> findByReleaseDateAfter(Date date);
 
 	List<Movie> findByReleaseDateBetween(Date start, Date end);
-
-//	// director
-//	List<Movie> findByDirector(Director director);
-//
-//	// production
-//	List<Movie> findByProduction(Production production);
 
 }

@@ -1,5 +1,6 @@
 package com.brk.mdb.repositories;
 
+import java.util.Date;
 import java.util.List;
 
 import org.springframework.data.jpa.repository.JpaRepository;
@@ -11,4 +12,28 @@ import com.brk.mdb.models.Actor;
 public interface ActorRepository extends JpaRepository<Actor, Long> {
 
 	List<Actor> findByNameLike(String name);
+	
+	// city
+	List<Actor> findByCityLike(String city);
+
+	// state
+	List<Actor> findByStateLike(String state);
+
+	// country
+	List<Actor> findByCountryLike(String country);
+	
+	// height
+	List<Actor> findByHeightGreaterThanEqual(long boxOffice);
+
+	List<Actor> findByHeightLessThanEqual(long budget);
+
+	List<Actor> findByHeightGreaterThanEqualAndHeightLessThanEqual(int min, int max);
+	
+	// dob
+	List<Actor> findByDobBefore(Date date);
+
+	List<Actor> findByDobAfter(Date date);
+
+	List<Actor> findByDobBetween(Date start, Date end);
+	
 }

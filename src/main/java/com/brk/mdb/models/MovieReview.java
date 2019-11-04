@@ -17,14 +17,14 @@ public class MovieReview {
 	@ManyToOne
 	private Award user;
 
-	private int ratting;
+	private int rating;
 	private String comment;
 
-	public MovieReview(Movie movie, Award user, int ratting, String comment) {
+	public MovieReview(Movie movie, Award user, int rating, String comment) {
 		super();
 		this.movie = movie;
 		this.user = user;
-		this.ratting = ratting;
+		this.rating = rating;
 		this.comment = comment;
 	}
 
@@ -47,7 +47,7 @@ public class MovieReview {
 				return false;
 		} else if (!movie.equals(other.movie))
 			return false;
-		if (ratting != other.ratting)
+		if (rating != other.rating)
 			return false;
 		if (user == null) {
 			if (other.user != null)
@@ -63,7 +63,7 @@ public class MovieReview {
 		int result = 1;
 		result = prime * result + ((comment == null) ? 0 : comment.hashCode());
 		result = prime * result + ((movie == null) ? 0 : movie.hashCode());
-		result = prime * result + ratting;
+		result = prime * result + rating;
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
