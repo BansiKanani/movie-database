@@ -24,32 +24,32 @@ public class MovieServiceImpl implements MovieService {
 
 	@Autowired
 	private MovieRepository movieRepository;
-	
 
 	public List<Movie> getByName(String name) {
-		return movieRepository.findByNameLike("%"+name+"%");
+		return movieRepository.findByNameLike("%" + name + "%");
 	}
-
 
 	@Override
 	public Movie insertOne(String name, int runTime, long budget, long boxOffice, String censorRating, String story,
 			Date releaseDate, Set<Genre> genres, Director director, Production production, Set<Writer> writers,
 			Set<Actor> actors, Set<Language> languages) {
-		
-		Movie m = new Movie(name, runTime, boxOffice, budget, censorRating, story, releaseDate, director, production, writers, actors, languages, genres, movieReview, wishlistedBy);
+
+		Movie m = new Movie(name, runTime, boxOffice, budget, censorRating, story, releaseDate, director, production,
+				writers, actors, languages, genres, movieReview, wishlistedBy);
 
 		movieRepository.save(m);
 		return null;
 	}
 
-
 	@Override
-	public Movie updateBoxOffice(Movie m, long newIncome) {
-		Movie mm = movieRepository.findById(m.getId()).orElseThrow();
-		mm.setBoxOffice(newIncome);
-		return mm;
-	}
+	public MovieTO updateBoxOffice(long movieId, long newIncome) {
 
+		if (newIncome > 0) {
+			movieRepository.findById(movieId).orElseThrow().setBoxOffice(newIncome);			
+		}
+		
+		return null;
+	}
 
 	@Override
 	public List<Movie> getAll() {
@@ -57,12 +57,10 @@ public class MovieServiceImpl implements MovieService {
 		return null;
 	}
 
-
 	@Override
 	public Optional<Movie> getById(long id) {
 		movieRepository.findById(id).orElseThrow()
 	}
-
 
 	@Override
 	public List<Movie> getByRunTime(int minLength, int maxLength) {
@@ -70,13 +68,11 @@ public class MovieServiceImpl implements MovieService {
 		return null;
 	}
 
-
 	@Override
 	public List<Movie> addAward(Movie m, Award a, Date d) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@Override
 	public List<Movie> removeAward(Movie m, Date d) {
@@ -84,13 +80,11 @@ public class MovieServiceImpl implements MovieService {
 		return null;
 	}
 
-
 	@Override
 	public List<Movie> addWhiteListedBy(Movie m, User u) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@Override
 	public List<Movie> removeWhiteListedBy(Movie m, User u) {
@@ -98,13 +92,11 @@ public class MovieServiceImpl implements MovieService {
 		return null;
 	}
 
-
 	@Override
 	public List<Movie> addReview(Movie m, User u, int rating, String comment) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@Override
 	public List<Movie> removeReview(Movie m, User u) {
@@ -112,13 +104,11 @@ public class MovieServiceImpl implements MovieService {
 		return null;
 	}
 
-
 	@Override
 	public List<Movie> getByDate(Date earliest, Date latest) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 	@Override
 	public List<Movie> getByCensorRating(String censorRating) {
@@ -126,19 +116,16 @@ public class MovieServiceImpl implements MovieService {
 		return null;
 	}
 
-
 	@Override
 	public List<Movie> getByBudget(long min, long max) {
 		// TODO Auto-generated method stub
 		return null;
 	}
 
-
 	@Override
 	public List<Movie> getByBoxOffice(long min, long max) {
 		// TODO Auto-generated method stub
 		return null;
 	}
-
 
 }

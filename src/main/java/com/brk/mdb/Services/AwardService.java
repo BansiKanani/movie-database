@@ -8,18 +8,18 @@ import com.brk.mdb.models.Movie;
 
 public interface AwardService {
 
-	Award insertOne(String name);
+	AwardTO insertOne(String name);
 
-	List<Movie> addMovie(Award a, Movie m, Date d);
+	List<MovieTO> addMovie(long awardId, long movieId, Date d);
 
-	List<Movie> removeMovie(Award a, Movie m);
+	List<MovieTO> removeMovie(long awardId, long movieId);
 
-	List<Movie> getMovies(Award a);
+	List<MovieTO> getMovies(long awardId);
 	
-	Award getById(Long id);
+	AwardTO getById(long id);
 
-	List<Award> getByName(String n);
+	List<AwardTO> getByName(String n);
 
-	List<Award> getAll();
+	List<AwardTO> getAll();
 
 }

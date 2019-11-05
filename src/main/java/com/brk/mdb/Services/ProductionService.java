@@ -7,15 +7,15 @@ import com.brk.mdb.models.Production;
 
 public interface ProductionService {
 
-	Production insertOne(String name);
+	ProductionTO insertOne(String name);
 
-	List<Production> getByName(String name);
+	List<ProductionTO> getByName(String name);
 
-	List<Production> getAll();
+	List<ProductionTO> getAll();
 
-	List<Movie> getMovies(Production p);
+	List<Movie> getMovies(long productionId);
 
-	List<Movie> addMovie(Production p, Movie m);
+	List<Movie> addMovie(long productionId, long movieId);
 
-	List<Movie> removeMovie(Production p, Movie m);
+	List<Movie> removeMovie(long productionId, long movieId);
 }

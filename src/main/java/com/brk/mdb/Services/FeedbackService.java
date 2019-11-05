@@ -7,10 +7,10 @@ import com.brk.mdb.models.User;
 
 public interface FeedbackService {
 	
-	Feedback insertOne(User u, String message);
+	FeedbackTO insertOne(long userId, String message);
 	
-	List<Feedback> getByUser(User u);
+	List<FeedbackTO> getByUser(long userId);
 	
-	List<Feedback> getAll();
+	List<FeedbackTO> getAll();
 	
 }

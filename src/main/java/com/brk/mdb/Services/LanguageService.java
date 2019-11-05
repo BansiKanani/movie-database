@@ -7,17 +7,17 @@ import com.brk.mdb.models.Movie;
 
 public interface LanguageService {
 	
-	Language insertOne(String name);
+	LanguageTO insertOne(String name);
 
-	List<Movie> addMovie(Language l, Movie m);
+	List<MovieTO> addMovie(long langId, long movieId);
 
-	List<Movie> removeMovie(Language l, Movie m);
+	List<MovieTO> removeMovie(long langId, long movieId);
 
-	List<Movie> getMovies(Language l);
+	List<MovieTO> getMovies(long langId);
 	
-	Language getById(Long id);
+	LanguageTO getById(long id);
 	
-	List<Language> getByName(String name);
+	List<LanguageTO> getByName(String name);
 
-	List<Language> getAll();
+	List<LanguageTO> getAll();
 }

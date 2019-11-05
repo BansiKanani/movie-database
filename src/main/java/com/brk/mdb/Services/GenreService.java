@@ -7,18 +7,18 @@ import com.brk.mdb.models.Movie;
 
 public interface GenreService {
 
-	Genre insertOne(String name);
+	GenreTO insertOne(String name);
 
-	List<Movie> addMovie(Genre g, Movie m);
+	List<MovieTO> addMovie(long genreId, long movieId);
 
-	List<Movie> removeMovie(Genre g, Movie m);
+	List<MovieTO> removeMovie(long genreId, long movieId);
 
-	List<Movie> getMovies(Genre g);
+	List<MovieTO> getMovies(long genreId);
 	
-	Genre getById(Long id);
+	GenreTO getById(long id);
 	
-	List<Genre> getByName(String name);
+	List<GenreTO> getByName(String name);
 
-	List<Genre> getAll();
+	List<GenreTO> getAll();
 
 }

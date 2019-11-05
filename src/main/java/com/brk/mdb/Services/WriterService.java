@@ -7,18 +7,18 @@ import com.brk.mdb.models.Writer;
 
 public interface WriterService {
 
-	Writer insertOne(String name);
+	WriterTO insertOne(String name);
 
-	Writer getById(long id);
+	WriterTO getById(long id);
 
-	List<Writer> getByName(String name);
+	List<WriterTO> getByName(String name);
 
-	List<Writer> getAll();
+	List<WriterTO> getAll();
 	
-	List<Movie> getMovies(Writer w);
+	List<MovieTO> getMovies(long writerId);
 
-	List<Movie> addMovie(Writer w, Movie m);
+	List<MovieTO> addMovie(long writerId, long movieId);
 
-	List<Movie> removeMovie(Writer w, Movie m);
+	List<MovieTO> removeMovie(long writerId, long movieId);
 
 }

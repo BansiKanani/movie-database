@@ -11,28 +11,28 @@ import com.brk.mdb.models.Movie;
 
 public interface ActorService {
 
-	Actor insertOne(String name, Date dob, int height, String city, String state, String country);
+	ActorTO insertOne(String name, Date dob, int height, String city, String state, String country);
 
-	List<Movie> addMovie(Actor a, Movie movie);
+	List<MovieTO> addMovie(long actorId, long movieId);
 
-	List<Movie> removeMovie(Actor a, Movie movie);
+	List<MovieTO> removeMovie(long actorId, long movieId);
 
-	List<Movie> getMovies(Actor a);
+	List<MovieTO> getMovies(long actorId);
 
-	Actor getById(Long id);
+	ActorTO getById(long actorid);
 
-	List<Actor> getByName(String name);
+	List<ActorTO> getByName(String name);
 
-	List<Actor> getAll();
+	List<ActorTO> getAll();
 
-	List<Actor> getByHeight(int minLength, int maxLength);
+	List<ActorTO> getByHeight(int minLength, int maxLength);
 
-	List<Actor> getByAge(int min, int max);
+	List<ActorTO> getByAge(int min, int max);
 
-	List<Actor> getByCity(Director director);
+	List<ActorTO> getByCity(long directorId);
 
-	List<Actor> getByState(Genre genre);
+	List<ActorTO> getByState(long genreId);
 
-	List<Actor> getByCountry(Language lang);
+	List<ActorTO> getByCountry(long langId);
 
 }

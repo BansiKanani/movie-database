@@ -7,18 +7,18 @@ import com.brk.mdb.models.Movie;
 
 public interface DirectorService {
 
-	Director insertOne(String name);
+	DirectorTO insertOne(String name);
 
-	List<Movie> addMovie(Director d, Movie m);
+	List<MovieTO> addMovie(long directorId, long movieId);
 
-	List<Movie> removeMovie(Director d, Movie m);
+	List<MovieTO> removeMovie(long directorId, long movieId);
 
-	List<Movie> getMovies(Director d);
+	List<MovieTO> getMovies(long directorId);
 
-	Director getById(Long id);
+	DirectorTO getById(long id);
 
-	List<Director> getByName(String n);
+	List<DirectorTO> getByName(String n);
 
-	List<Director> getAll();
+	List<DirectorTO> getAll();
 
 }

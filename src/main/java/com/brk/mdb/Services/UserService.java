@@ -8,30 +8,30 @@ import com.brk.mdb.models.User;
 
 public interface UserService {
 
-	User insertUser(String fname, String lname, String email, long phone, Date dob, String city, String state,
+	UserTO insertUser(String fname, String lname, String email, long phone, Date dob, String city, String state,
 			String country);
 
-	boolean rateMovie(User u, Movie m, int rating, String review);
+	boolean rateMovie(long userId, long movieId, int rating, String review);
 
-	boolean removeRating(User u, Movie m);
+	boolean removeRating(long userId, long movieId);
 
-	User getById(long id);
+	UserTO getById(long id);
 
-	User getByEmail(long email);
+	UserTO getByEmail(long email);
 
-	List<User> getAll();
+	List<UserTO> getAll();
 
-	List<User> getByName(String name);
+	List<UserTO> getByName(String name);
 
-	List<User> getByAddress(String city, String state, String country);
+	List<UserTO> getByAddress(String city, String state, String country);
 
-	List<User> getByAge(int minAge, int maxAge);
+	List<UserTO> getByAge(int minAge, int maxAge);
 
-	List<Movie> addToWishlist(User u, Movie m);
+	List<Movie> addToWishlist(long userId, long movieId);
 
-	List<Movie> removeFromWishlist(User u, Movie m);
+	List<Movie> removeFromWishlist(long userId, long movieId);
 
-	List<Movie> getWishlist(User u);
+	List<Movie> getWishlist(long userId);
 
-	List<Movie> getRatedMovies(User u);
+	List<Movie> getRatedMovies(long userId);
 }
