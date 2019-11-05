@@ -9,10 +9,16 @@ public interface WriterService {
 
 	Writer insertOne(String name);
 
+	Writer getById(long id);
+
 	List<Writer> getByName(String name);
 
 	List<Writer> getAll();
+	
+	List<Movie> getMovies(Writer w);
 
-	List<Movie> getWrittenBy(Writer writer);
+	List<Movie> addMovie(Writer w, Movie m);
+
+	List<Movie> removeMovie(Writer w, Movie m);
 
 }

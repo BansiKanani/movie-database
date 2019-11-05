@@ -7,7 +7,7 @@ import com.brk.mdb.models.Production;
 
 public interface ProductionService {
 
-	Production insertOne(String n);
+	Production insertOne(String name);
 
 	List<Production> getByName(String name);
 

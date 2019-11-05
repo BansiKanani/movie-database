@@ -37,7 +37,7 @@ public class Movie {
 
 	@ManyToMany
 	@JoinTable(name = "movie_writer", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "writer_id"))
-	private Set<Actor> writers;
+	private Set<Writer> writers;
 
 	@ManyToMany
 	@JoinTable(name = "movie_actor", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
@@ -61,7 +61,7 @@ public class Movie {
 	private Set<User> wishlistedBy;
 
 	public Movie(String name, int runTime, long boxOffice, long budget, String censorRating, String story,
-			Date releaseDate, Director director, Production production, Set<Actor> writers, Set<Actor> actors,
+			Date releaseDate, Director director, Production production, Set<Writer> writers, Set<Actor> actors,
 			Set<Language> languages, Set<Genre> genres, Set<MovieAward> movieAwards, Set<MovieReview> movieReview,
 			Set<User> wishlistedBy) {
 		super();

@@ -15,12 +15,12 @@ public class MovieReview {
 
 	@Id
 	@ManyToOne
-	private Award user;
+	private User user;
 
 	private int rating;
 	private String comment;
 
-	public MovieReview(Movie movie, Award user, int rating, String comment) {
+	public MovieReview(Movie movie, User user, int rating, String comment) {
 		super();
 		this.movie = movie;
 		this.user = user;
