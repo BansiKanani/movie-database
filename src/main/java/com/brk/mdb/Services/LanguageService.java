@@ -2,16 +2,12 @@ package com.brk.mdb.Services;
 
 import java.util.List;
 
-import com.brk.mdb.models.Language;
-import com.brk.mdb.models.Movie;
+import com.brk.mdb.modelsTO.LanguageTO;
+import com.brk.mdb.modelsTO.MovieTO;
 
 public interface LanguageService {
 	
 	LanguageTO insertOne(String name);
-
-	List<MovieTO> addMovie(long langId, long movieId);
-
-	List<MovieTO> removeMovie(long langId, long movieId);
 
 	List<MovieTO> getMovies(long langId);
 	

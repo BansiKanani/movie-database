@@ -2,48 +2,52 @@ package com.brk.mdb.Services;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 import java.util.Set;
 
-import com.brk.mdb.models.Actor;
-import com.brk.mdb.models.Award;
-import com.brk.mdb.models.Director;
-import com.brk.mdb.models.Genre;
-import com.brk.mdb.models.Language;
-import com.brk.mdb.models.Movie;
-import com.brk.mdb.models.Production;
-import com.brk.mdb.models.User;
-import com.brk.mdb.models.Writer;
+import com.brk.mdb.modelsTO.AwardTO;
+import com.brk.mdb.modelsTO.MovieReviewTO;
+import com.brk.mdb.modelsTO.MovieTO;
+import com.brk.mdb.modelsTO.UserTO;
 
 public interface MovieService {
 
 	MovieTO insertOne(String name, int runTime, long budget, long boxOffice, String censorRating, String story,
-			Date releaseDate, Set<Genre> genres, long directorId, long productionId);
+			Date releaseDate, long directorId, long productionId, Set<Long> writersId, Set<Long> actorsId,
+			Set<Long> languages, Set<Long> genres);
 
 	List<MovieTO> getAll();
-	
-	Optional<MovieTO> getById(long id);
-	
+
+	MovieTO getById(long id);
+
+	List<MovieTO> getByName(String name);
+
 	List<MovieTO> getByRunTime(int minLength, int maxLength);
+
+	// awards
+	List<AwardTO> getAwards(long movieId, long awardId);
 	
-	List<MovieTO> addAward(long movieId, long awardId, Date d);
+	List<AwardTO> addAward(long movieId, long awardId, Date d);
+
+	List<AwardTO> removeAward(long movieId, long awardId);
+
+	// white list
+	List<AwardTO> getWhiteListedBy(long movieId, long awardId);
+
+
+	// reviews
+	List<AwardTO> getReviews(long movieId, long awardId);
 	
-	List<MovieTO> removeAward(long movieId, Date d);
-	
-	List<MovieTO> addWhiteListedBy(long movieId, long userId);
-	
-	List<MovieTO> removeWhiteListedBy(long movieId, long userId);
-	
-	List<MovieTO> addReview(long movieId, long userId, int rating, String comment);
-	
-	List<MovieTO> removeReview(long movieId, long userId);
+	List<MovieReviewTO> addReview(long movieId, long userId, int rating, String comment);
+
+	List<MovieReviewTO> removeReview(long movieId, long userId);
+
 	
 	List<MovieTO> getByDate(Date earliest, Date latest);
-	
+
 	List<MovieTO> getByCensorRating(String censorRating);
-	
+
 	List<MovieTO> getByBudget(long min, long max);
-	
+
 	List<MovieTO> getByBoxOffice(long min, long max);
 
 	MovieTO updateBoxOffice(long movieId, long newIncome);
@@ -59,8 +63,6 @@ public interface MovieService {
 	MovieTO addWriter(long movieId, long writerId);
 
 	MovieTO removeWriter(long movieId, long writerId);
-
-	List<MovieTO> getByName(String name);
 
 
 }

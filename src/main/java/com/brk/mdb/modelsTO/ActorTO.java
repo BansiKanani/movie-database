@@ -1,8 +1,12 @@
 package com.brk.mdb.modelsTO;
 
 import java.util.Date;
-import java.util.Set;
 
+import com.brk.mdb.models.Actor;
+
+import lombok.Data;
+
+@Data
 public class ActorTO {
 
 	private long id;
@@ -12,17 +16,15 @@ public class ActorTO {
 	private String state;
 	private String country;
 	private Date dob;
-	private Set<long> moviesId;
 
-	public ActorTO(String name, int height, String city, String state, String country, Date dob, Set<MovieTO> movies) {
-		super();
-		this.name = name;
-		this.height = height;
-		this.city = city;
-		this.state = state;
-		this.country = country;
-		this.dob = dob;
-		this.movies = movies;
+	public ActorTO(Actor a) {
+		this.id = a.getId();
+		this.name = a.getName();
+		this.height = a.getHeight();
+		this.city = a.getCity();
+		this.state = a.getState();
+		this.country = a.getCountry();
+		this.dob = a.getDob();
 	}
 
 }

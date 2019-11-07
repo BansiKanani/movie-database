@@ -1,17 +1,17 @@
-package com.brk.mdb.modelsto;
+package com.brk.mdb.modelsTO;
 
-import java.util.Set;
+import com.brk.mdb.models.Language;
 
+import lombok.Data;
+
+@Data
 public class LanguageTO {
 
 	private long id;
-
 	private String name;
 
-	private Set<MovieTO> movies;
-
-	public LanguageTO(String name) {
-		super();
-		this.name = name;
+	public LanguageTO(Language l) {
+		this.id = l.getId();
+		this.name = l.getName();
 	}
 }

@@ -2,8 +2,7 @@ package com.brk.mdb.Services;
 
 import java.util.List;
 
-import com.brk.mdb.models.Feedback;
-import com.brk.mdb.models.User;
+import com.brk.mdb.modelsTO.FeedbackTO;
 
 public interface FeedbackService {
 	

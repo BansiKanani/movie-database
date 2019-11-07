@@ -1,17 +1,17 @@
-package com.brk.mdb.modelsto;
+package com.brk.mdb.modelsTO;
 
-import java.util.Set;
+import com.brk.mdb.models.Production;
 
+import lombok.Data;
+
+@Data
 public class ProductionTO {
 
 	private long id;
-
 	private String name;
 
-	private Set<MovieTO> movies;
-
-	public ProductionTO(String name) {
-		super();
-		this.name = name;
+	public ProductionTO(Production p) {
+		this.id = p.getId();
+		this.name = p.getName();
 	}
 }

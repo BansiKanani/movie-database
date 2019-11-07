@@ -1,17 +1,17 @@
-package com.brk.mdb.modelsto;
+package com.brk.mdb.modelsTO;
 
-import java.util.List;
+import com.brk.mdb.models.Writer;
 
+import lombok.Data;
+
+@Data
 public class WriterTO {
 
 	private long id;
-
 	private String name;
 
-	private List<MovieTO> wrote;
-
-	public WriterTO(String name) {
-		super();
-		this.name = name;
+	public WriterTO(Writer w) {
+		this.id = w.getId();
+		this.name = w.getName();
 	}
 }

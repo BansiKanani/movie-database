@@ -1,17 +1,17 @@
-package com.brk.mdb.modelsto;
+package com.brk.mdb.modelsTO;
 
-import java.util.Set;
+import com.brk.mdb.models.Award;
 
+import lombok.Data;
+
+@Data
 public class AwardTO {
 
 	private long id;
-
 	private String name;
 
-	private Set<MovieAwardTO> movieAwards;
-
-	public AwardTO(String name) {
-		super();
-		this.name = name;
+	public AwardTO(Award a) {
+		this.id = a.getId();
+		this.name = a.getName();
 	}
 }

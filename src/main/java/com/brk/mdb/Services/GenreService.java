@@ -2,16 +2,12 @@ package com.brk.mdb.Services;
 
 import java.util.List;
 
-import com.brk.mdb.models.Genre;
-import com.brk.mdb.models.Movie;
+import com.brk.mdb.modelsTO.GenreTO;
+import com.brk.mdb.modelsTO.MovieTO;
 
 public interface GenreService {
 
 	GenreTO insertOne(String name);
-
-	List<MovieTO> addMovie(long genreId, long movieId);
-
-	List<MovieTO> removeMovie(long genreId, long movieId);
 
 	List<MovieTO> getMovies(long genreId);
 	

@@ -1,7 +1,7 @@
 package com.brk.mdb.models;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -33,9 +33,9 @@ public class Actor {
 	private Date dob;
 	
 	@ManyToMany(mappedBy = "actors")
-	private Set<Movie> movies;
+	private List<Movie> movies;
 
-	public Actor(String name, int height, String city, String state, String country, Date dob, Set<Movie> movies) {
+	public Actor(String name, int height, String city, String state, String country, Date dob, List<Movie> movies) {
 		super();
 		this.name = name;
 		this.height = height;

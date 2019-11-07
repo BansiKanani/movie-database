@@ -1,6 +1,6 @@
 package com.brk.mdb.models;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
@@ -22,7 +22,7 @@ public class Production {
 	private String name;
 	
 	@OneToMany(mappedBy = "production")
-	private Set<Movie> movies;
+	private List<Movie> movies;
 
 	public Production(String name) {
 		super();

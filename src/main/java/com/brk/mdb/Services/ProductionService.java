@@ -3,7 +3,7 @@ package com.brk.mdb.Services;
 import java.util.List;
 
 import com.brk.mdb.models.Movie;
-import com.brk.mdb.models.Production;
+import com.brk.mdb.modelsTO.ProductionTO;
 
 public interface ProductionService {
 
@@ -15,7 +15,4 @@ public interface ProductionService {
 
 	List<Movie> getMovies(long productionId);
 
-	List<Movie> addMovie(long productionId, long movieId);
-
-	List<Movie> removeMovie(long productionId, long movieId);
 }

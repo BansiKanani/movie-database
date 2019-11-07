@@ -1,17 +1,18 @@
-package com.brk.mdb.modelsto;
+package com.brk.mdb.modelsTO;
 
-import java.util.Set;
+import com.brk.mdb.models.Director;
 
+import lombok.Data;
+
+@Data
 public class DirectorTO {
 
 	private long id;
-
 	private String name;
 
-	private Set<MovieTO> movies;
+	public DirectorTO(Director d) {
 
-	public DirectorTO(String name) {
-		super();
-		this.name = name;
+		this.id = d.getId();
+		this.name = d.getName();
 	}
 }

@@ -1,11 +1,22 @@
 package com.brk.mdb.models;
 
 import java.util.Date;
+import java.util.List;
 import java.util.Set;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
 
-import lombok.*;
+import lombok.Data;
 
 @Data
 @Entity(name = "Users")
@@ -29,17 +40,17 @@ public class User {
 	private Date dob;
 
 	@OneToMany(mappedBy = "user")
-	private Set<Feedback> feedbacks;
+	private List<Feedback> feedbacks;
 
 	@OneToMany(mappedBy = "user", cascade = CascadeType.ALL)
-	private Set<MovieReview> movieReviews;
+	private List<MovieReview> movieReviews;
 
 	@ManyToMany
 	@JoinTable(name = "user_wishlist", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "movie_id"))
-	private Set<Movie> wishlist;
+	private List<Movie> wishlist;
 
 	public User(boolean status, String fname, String lname, String email, long phone, String city, String state,
-			String country, Date dob, Set<Feedback> feedbacks, Set<MovieReview> movieReviews, Set<Movie> wishlist) {
+			String country, Date dob, List<Feedback> feedbacks, List<MovieReview> movieReviews, List<Movie> wishlist) {
 		super();
 		this.status = status;
 		this.fname = fname;

@@ -30,10 +30,6 @@ public interface ActorRepository extends JpaRepository<Actor, Long> {
 	List<Actor> findByHeightGreaterThanEqualAndHeightLessThanEqual(int min, int max);
 	
 	// dob
-	List<Actor> findByDobBefore(Date date);
-
-	List<Actor> findByDobAfter(Date date);
-
 	List<Actor> findByDobBetween(Date start, Date end);
 	
 }

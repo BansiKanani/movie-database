@@ -2,8 +2,8 @@ package com.brk.mdb.Services;
 
 import java.util.List;
 
-import com.brk.mdb.models.Movie;
-import com.brk.mdb.models.Writer;
+import com.brk.mdb.modelsTO.MovieTO;
+import com.brk.mdb.modelsTO.WriterTO;
 
 public interface WriterService {
 

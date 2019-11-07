@@ -4,7 +4,7 @@ import java.util.Date;
 import java.util.List;
 
 import com.brk.mdb.models.Movie;
-import com.brk.mdb.models.User;
+import com.brk.mdb.modelsTO.UserTO;
 
 public interface UserService {
 

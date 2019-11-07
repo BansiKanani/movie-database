@@ -1,6 +1,6 @@
 package com.brk.mdb.models;
 
-import java.util.Set;
+import java.util.List;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -22,7 +22,7 @@ public class Award {
 	private String name;
 
 	@OneToMany(mappedBy = "award", cascade = CascadeType.ALL)
-	private Set<MovieAward> movieAwards;
+	private List<MovieAward> movieAwards;
 
 	public Award(String name) {
 		super();

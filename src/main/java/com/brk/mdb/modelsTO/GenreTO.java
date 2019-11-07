@@ -1,17 +1,17 @@
-package com.brk.mdb.modelsto;
+package com.brk.mdb.modelsTO;
 
-import java.util.Set;
+import com.brk.mdb.models.Genre;
 
+import lombok.Data;
+
+@Data
 public class GenreTO {
 
 	private long id;
-
 	private String name;
 
-	private Set<MovieTO> movies;
-
-	public GenreTO(String name) {
-		super();
-		this.name = name;
+	public GenreTO(Genre g) {
+		this.id = g.getId();
+		this.name = g.getName();
 	}
 }

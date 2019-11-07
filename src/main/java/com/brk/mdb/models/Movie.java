@@ -1,9 +1,21 @@
 package com.brk.mdb.models;
 
 import java.util.Date;
-import java.util.Set;
+import java.util.List;
 
-import javax.persistence.*;
+import javax.persistence.CascadeType;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.GenerationType;
+import javax.persistence.Id;
+import javax.persistence.JoinColumn;
+import javax.persistence.JoinTable;
+import javax.persistence.ManyToMany;
+import javax.persistence.ManyToOne;
+import javax.persistence.OneToMany;
+import javax.persistence.Temporal;
+import javax.persistence.TemporalType;
+
 import lombok.Data;
 
 @Data
@@ -18,8 +30,8 @@ public class Movie {
 
 	private int runTime;
 
-	private long boxOffice;
 	private long budget;
+	private long boxOffice;
 
 	private String censorRating;
 	private String story;
@@ -37,38 +49,51 @@ public class Movie {
 
 	@ManyToMany
 	@JoinTable(name = "movie_writer", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "writer_id"))
-	private Set<Writer> writers;
+	private List<Writer> writers;
 
 	@ManyToMany
 	@JoinTable(name = "movie_actor", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "actor_id"))
-	private Set<Actor> actors;
+	private List<Actor> actors;
 
 	@ManyToMany
 	@JoinTable(name = "movie_language", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "language_id"))
-	private Set<Language> languages;
+	private List<Language> languages;
 
 	@ManyToMany
 	@JoinTable(name = "movie_genre", joinColumns = @JoinColumn(name = "movie_id"), inverseJoinColumns = @JoinColumn(name = "genre_id"))
-	private Set<Genre> genres;
+	private List<Genre> genres;
 
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-	private Set<MovieAward> movieAwards;
+	private List<MovieAward> movieAwards;
 
 	@OneToMany(mappedBy = "movie", cascade = CascadeType.ALL)
-	private Set<MovieReview> movieReview;
+	private List<MovieReview> movieReview;
 
 	@ManyToMany(mappedBy = "wishlist")
-	private Set<User> wishlistedBy;
+	private List<User> wishlistedBy;
 
-	public Movie(String name, int runTime, long boxOffice, long budget, String censorRating, String story,
-			Date releaseDate, Director director, Production production, Set<Writer> writers, Set<Actor> actors,
-			Set<Language> languages, Set<Genre> genres, Set<MovieAward> movieAwards, Set<MovieReview> movieReview,
-			Set<User> wishlistedBy) {
+
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", name=" + name + ", runTime=" + runTime + ", boxOffice=" + boxOffice + ", budget="
+				+ budget + ", censorRating=" + censorRating + ", story=" + story + ", releaseDate=" + releaseDate
+				+ ", director=" + director + ", production=" + production + ", writers=" + writers + ", actors="
+				+ actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards=" + movieAwards
+				+ ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
+	}
+
+
+
+	public Movie(String name, int runTime, long budget, long boxOffice, String censorRating, String story,
+			Date releaseDate, Director director, Production production, List<Writer> writers, List<Actor> actors,
+			List<Language> languages, List<Genre> genres, List<MovieAward> movieAwards, List<MovieReview> movieReview,
+			List<User> wishlistedBy) {
 		super();
 		this.name = name;
 		this.runTime = runTime;
-		this.boxOffice = boxOffice;
 		this.budget = budget;
+		this.boxOffice = boxOffice;
 		this.censorRating = censorRating;
 		this.story = story;
 		this.releaseDate = releaseDate;
@@ -81,15 +106,6 @@ public class Movie {
 		this.movieAwards = movieAwards;
 		this.movieReview = movieReview;
 		this.wishlistedBy = wishlistedBy;
-	}
-
-	@Override
-	public String toString() {
-		return "Movie [id=" + id + ", name=" + name + ", runTime=" + runTime + ", boxOffice=" + boxOffice + ", budget="
-				+ budget + ", censorRating=" + censorRating + ", story=" + story + ", releaseDate=" + releaseDate
-				+ ", director=" + director + ", production=" + production + ", writers=" + writers + ", actors="
-				+ actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards=" + movieAwards
-				+ ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
 	}
 
 }
