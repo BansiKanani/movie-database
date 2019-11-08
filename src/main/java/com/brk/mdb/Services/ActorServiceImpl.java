@@ -1,5 +1,6 @@
 package com.brk.mdb.Services;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -7,9 +8,9 @@ import java.util.stream.Collectors;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import com.brk.mdb.models.Actor;
 import com.brk.mdb.models.Movie;
 import com.brk.mdb.modelsTO.ActorTO;
-import com.brk.mdb.modelsTO.DirectorTO;
 import com.brk.mdb.modelsTO.MovieTO;
 import com.brk.mdb.repositories.ActorRepository;
 
@@ -21,19 +22,20 @@ public class ActorServiceImpl implements ActorService {
 
 	@Override
 	public ActorTO insertOne(String name, Date dob, int height, String city, String state, String country) {
-		// TODO Auto-generated method stub
-		return null;
+		Actor a = new Actor(name, height, city, state, country, dob, new ArrayList<Movie>());
+		aR.saveAndFlush(a);
+		return new ActorTO(a);
 	}
 
 	@Override
 	public List<MovieTO> getMovies(long actorId) {
-		List<Movie> movies = aR.findById(actorId).orElseThrow().getMovies();
-		return movies.stream().map(m -> new MovieTO(m)).collect(Collectors.toList());
+		return aR.findById(actorId).orElseThrow().getMovies().stream().map(m -> new MovieTO(m))
+				.collect(Collectors.toList());
 	}
 
 	@Override
-	public ActorTO getById(long actorid) {
-		return new ActorTO(aR.findById(actorid).orElseThrow());
+	public ActorTO getById(long actorId) {
+		return new ActorTO(aR.findById(actorId).orElseThrow());
 	}
 
 	@Override
@@ -53,31 +55,38 @@ public class ActorServiceImpl implements ActorService {
 	}
 
 	@Override
-	public List<ActorTO> getByAge(int min, int max) {
-		
-//		Date s = new Date();
+	public List<ActorTO> getByAge(int minAge, int maxAge) {
+
+//		Date Today = new Date();
 //		
+//		Date minBirthDate = Today - new Date();
+//		Date maxBirthDate = new Date();
+//		
+
 //		return aR.findByDobBetween(start, end).stream().map(a -> new ActorTO(a))
 //				.collect(Collectors.toList());
 		return null;
 	}
 
 	@Override
-	public List<ActorTO> getByCity(long directorId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ActorTO> getByCity(String city) {
+		return aR.findByCityLike("%" + city + "%").stream().map(a -> new ActorTO(a)).collect(Collectors.toList());
 	}
 
 	@Override
-	public List<ActorTO> getByState(long genreId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ActorTO> getByState(String state) {
+		return aR.findByStateLike("%" + state + "%").stream().map(a -> new ActorTO(a)).collect(Collectors.toList());
 	}
 
 	@Override
-	public List<ActorTO> getByCountry(long langId) {
-		// TODO Auto-generated method stub
-		return null;
+	public List<ActorTO> getByCountry(String country) {
+		return aR.findByCountryLike("%" + country + "%").stream().map(a -> new ActorTO(a)).collect(Collectors.toList());
+	}
+
+	@Override
+	public List<ActorTO> getByPlace(String country, String state, String city) {
+		return aR.findByCountryLikeAndStateLikeAndCityLike("%" + country + "%", "%" + state + "%", "%" + city + "%")
+				.stream().map(a -> new ActorTO(a)).collect(Collectors.toList());
 	}
 
 }

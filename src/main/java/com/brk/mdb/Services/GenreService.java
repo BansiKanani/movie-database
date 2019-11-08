@@ -11,7 +11,7 @@ public interface GenreService {
 
 	List<MovieTO> getMovies(long genreId);
 	
-	GenreTO getById(long id);
+	GenreTO getById(long genreId);
 	
 	List<GenreTO> getByName(String name);
 

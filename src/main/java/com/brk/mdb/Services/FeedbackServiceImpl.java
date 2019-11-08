@@ -1,6 +1,5 @@
 package com.brk.mdb.Services;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
@@ -25,10 +24,9 @@ public class FeedbackServiceImpl implements FeedbackService {
 	
 	@Override
 	public FeedbackTO insertOne(long userId, String message) {
-		
 		User u = uR.findById(userId).orElseThrow();
 		Feedback fb = new Feedback(u, message);
-		fR.save(fb);
+		fR.saveAndFlush(fb);
 		return new FeedbackTO(fb);
 	}
 

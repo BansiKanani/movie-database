@@ -21,7 +21,7 @@ public class DirectorServiceImpl implements DirectorService {
 	@Override
 	public DirectorTO insertOne(String name) {
 		Director d = new Director(name);
-		dR.save(d);
+		dR.saveAndFlush(d);
 		return new DirectorTO(d);
 	}
 

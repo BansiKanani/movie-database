@@ -11,9 +11,9 @@ public interface AwardService {
 
 	List<MovieTO> getMovies(long awardId);
 	
-	AwardTO getById(long id);
+	AwardTO getById(long awardId);
 
-	List<AwardTO> getByName(String n);
+	List<AwardTO> getByName(String name);
 
 	List<AwardTO> getAll();
 

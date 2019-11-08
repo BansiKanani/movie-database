@@ -12,7 +12,7 @@ public interface ActorService {
 
 	List<MovieTO> getMovies(long actorId);
 
-	ActorTO getById(long actorid);
+	ActorTO getById(long actorId);
 
 	List<ActorTO> getByName(String name);
 
@@ -22,10 +22,12 @@ public interface ActorService {
 
 	List<ActorTO> getByAge(int min, int max);
 
-	List<ActorTO> getByCity(long directorId);
+	List<ActorTO> getByCity(String city);
 
-	List<ActorTO> getByState(long genreId);
+	List<ActorTO> getByState(String state);
 
-	List<ActorTO> getByCountry(long langId);
+	List<ActorTO> getByCountry(String country);
+	
+	List<ActorTO> getByPlace(String country, String state, String city);
 
 }

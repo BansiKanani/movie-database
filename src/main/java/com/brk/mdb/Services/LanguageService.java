@@ -11,7 +11,7 @@ public interface LanguageService {
 
 	List<MovieTO> getMovies(long langId);
 	
-	LanguageTO getById(long id);
+	LanguageTO getById(long langId);
 	
 	List<LanguageTO> getByName(String name);
 

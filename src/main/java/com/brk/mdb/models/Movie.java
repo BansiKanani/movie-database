@@ -1,5 +1,6 @@
 package com.brk.mdb.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -72,23 +73,9 @@ public class Movie {
 	@ManyToMany(mappedBy = "wishlist")
 	private List<User> wishlistedBy;
 
-
-
-	@Override
-	public String toString() {
-		return "Movie [id=" + id + ", name=" + name + ", runTime=" + runTime + ", boxOffice=" + boxOffice + ", budget="
-				+ budget + ", censorRating=" + censorRating + ", story=" + story + ", releaseDate=" + releaseDate
-				+ ", director=" + director + ", production=" + production + ", writers=" + writers + ", actors="
-				+ actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards=" + movieAwards
-				+ ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
-	}
-
-
-
 	public Movie(String name, int runTime, long budget, long boxOffice, String censorRating, String story,
 			Date releaseDate, Director director, Production production, List<Writer> writers, List<Actor> actors,
-			List<Language> languages, List<Genre> genres, List<MovieAward> movieAwards, List<MovieReview> movieReview,
-			List<User> wishlistedBy) {
+			List<Language> languages, List<Genre> genres) {
 		super();
 		this.name = name;
 		this.runTime = runTime;
@@ -103,9 +90,19 @@ public class Movie {
 		this.actors = actors;
 		this.languages = languages;
 		this.genres = genres;
-		this.movieAwards = movieAwards;
-		this.movieReview = movieReview;
-		this.wishlistedBy = wishlistedBy;
+		this.movieAwards = new ArrayList<MovieAward>();
+		this.movieReview = new ArrayList<MovieReview>();
+		this.wishlistedBy = new ArrayList<User>();
 	}
+
+	@Override
+	public String toString() {
+		return "Movie [id=" + id + ", name=" + name + ", runTime=" + runTime + ", budget=" + budget + ", boxOffice="
+				+ boxOffice + ", censorRating=" + censorRating + ", story=" + story + ", releaseDate=" + releaseDate
+				+ ", director=" + director + ", production=" + production + ", writers=" + writers + ", actors="
+				+ actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards=" + movieAwards
+				+ ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
+	}
+
 
 }

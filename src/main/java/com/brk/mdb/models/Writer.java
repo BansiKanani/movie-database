@@ -22,7 +22,7 @@ public class Writer {
 	private String name;
 	
 	@OneToMany
-	private List<Movie> wrote;
+	private List<Movie> movies;
 
 	public Writer(String name) {
 		super();

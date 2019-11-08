@@ -22,6 +22,9 @@ public interface ActorRepository extends JpaRepository<Actor, Long> {
 	// country
 	List<Actor> findByCountryLike(String country);
 	
+	// address
+	List<Actor> findByCountryLikeAndStateLikeAndCityLike(String country, String state, String city);
+	
 	// height
 	List<Actor> findByHeightGreaterThanEqual(long boxOffice);
 
