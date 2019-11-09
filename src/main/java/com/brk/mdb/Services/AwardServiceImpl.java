@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brk.mdb.models.Award;
-import com.brk.mdb.models.MovieAward;
 import com.brk.mdb.modelsTO.AwardTO;
 import com.brk.mdb.modelsTO.MovieTO;
 import com.brk.mdb.repositories.AwardRepository;
@@ -16,34 +15,34 @@ import com.brk.mdb.repositories.AwardRepository;
 public class AwardServiceImpl implements AwardService {
 
 	@Autowired
-	private AwardRepository aR;
+	private AwardRepository awardRepo;
 
 	@Override
 	public AwardTO insertOne(String name) {
 		Award a = new Award(name);
-		aR.saveAndFlush(a);
+		awardRepo.save(a);
 		return new AwardTO(a);
 	}
 
 	@Override
 	public List<MovieTO> getMovies(long awardId) {
-		List<MovieAward> movieAwards = aR.findById(awardId).orElseThrow().getMovieAwards();
-		return movieAwards.stream().map(mA -> new MovieTO(mA.getMovie())).collect(Collectors.toList());		
+		return awardRepo.findById(awardId).orElseThrow().getMovieAwards().stream().map(mA -> new MovieTO(mA.getMovie()))
+				.collect(Collectors.toList());
 	}
 
 	@Override
-	public AwardTO getById(long awardId) {	
-		return new AwardTO(aR.findById(awardId).orElseThrow());
+	public AwardTO getById(long awardId) {
+		return new AwardTO(awardRepo.findById(awardId).orElseThrow());
 	}
 
 	@Override
-	public List<AwardTO> getByName(String name) {	
-		return aR.findByNameLike("%"+name+"%").stream().map(a -> new AwardTO(a)).collect(Collectors.toList());
+	public List<AwardTO> getByName(String name) {
+		return awardRepo.findByNameLike("%" + name + "%").stream().map(a -> new AwardTO(a)).collect(Collectors.toList());
 	}
 
 	@Override
 	public List<AwardTO> getAll() {
-		return aR.findAll().stream().map(a -> new AwardTO(a)).collect(Collectors.toList());
+		return awardRepo.findAll().stream().map(a -> new AwardTO(a)).collect(Collectors.toList());
 	}
 
 }

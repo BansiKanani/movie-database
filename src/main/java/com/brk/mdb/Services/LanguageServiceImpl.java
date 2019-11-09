@@ -15,34 +15,34 @@ import com.brk.mdb.repositories.LanguageRepository;
 public class LanguageServiceImpl implements LanguageService {
 
 	@Autowired
-	private LanguageRepository lR;
+	private LanguageRepository languageRepo;
 
 	@Override
 	public LanguageTO insertOne(String name) {
 		Language l = new Language(name);
-		lR.saveAndFlush(l);
+		languageRepo.save(l);
 		return new LanguageTO(l);
 	}
 
 	@Override
 	public List<MovieTO> getMovies(long langId) {
-		return lR.findById(langId).orElseThrow().getMovies().stream().map(m -> new MovieTO(m))
+		return languageRepo.findById(langId).orElseThrow().getMovies().stream().map(m -> new MovieTO(m))
 				.collect(Collectors.toList());
 	}
 
 	@Override
 	public LanguageTO getById(long langId) {
-		return new LanguageTO(lR.findById(langId).orElseThrow());
+		return new LanguageTO(languageRepo.findById(langId).orElseThrow());
 	}
 
 	@Override
 	public List<LanguageTO> getByName(String name) {
-		return lR.findByNameLike("%" + name + "%").stream().map(l -> new LanguageTO(l)).collect(Collectors.toList());
+		return languageRepo.findByNameLike("%" + name + "%").stream().map(l -> new LanguageTO(l)).collect(Collectors.toList());
 	}
 
 	@Override
 	public List<LanguageTO> getAll() {
-		return lR.findAll().stream().map(l -> new LanguageTO(l)).collect(Collectors.toList());
+		return languageRepo.findAll().stream().map(l -> new LanguageTO(l)).collect(Collectors.toList());
 	}
 
 }

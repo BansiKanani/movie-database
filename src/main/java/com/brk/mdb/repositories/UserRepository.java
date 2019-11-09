@@ -11,20 +11,20 @@ import com.brk.mdb.models.User;
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	// name
+	List<User> findByFnameLikeAndLnameLike(String fname, String lname);
+	
 	// email
 	User findByEmail(String email);
 
 	// phone
 	User findByPhone(long phone);
 
-	// city
+	// address
 	List<User> findByCityLike(String city);
-
-	// state
 	List<User> findByStateLike(String state);
-
-	// country
 	List<User> findByCountryLike(String country);
+	List<User> findByCityLikeAndStateLikeAndCountryLike(String city, String state, String country);
 
 	// dob
 	List<User> findByDobBefore(Date date);

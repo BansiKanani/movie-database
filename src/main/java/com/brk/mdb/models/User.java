@@ -1,8 +1,8 @@
 package com.brk.mdb.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import javax.persistence.CascadeType;
 import javax.persistence.Entity;
@@ -49,10 +49,9 @@ public class User {
 	@JoinTable(name = "user_wishlist", joinColumns = @JoinColumn(name = "user_id"), inverseJoinColumns = @JoinColumn(name = "movie_id"))
 	private List<Movie> wishlist;
 
-	public User(boolean status, String fname, String lname, String email, long phone, String city, String state,
-			String country, Date dob, List<Feedback> feedbacks, List<MovieReview> movieReviews, List<Movie> wishlist) {
+	public User(String fname, String lname, String email, long phone, String city, String state, String country,
+			Date dob) {
 		super();
-		this.status = status;
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
@@ -61,16 +60,17 @@ public class User {
 		this.state = state;
 		this.country = country;
 		this.dob = dob;
-		this.feedbacks = feedbacks;
-		this.movieReviews = movieReviews;
-		this.wishlist = wishlist;
+		this.status = true;
+		this.feedbacks = new ArrayList<>();
+		this.movieReviews = new ArrayList<>();
+		this.wishlist = new ArrayList<>();
 	}
-	
+
 	@Override
 	public String toString() {
 		return "User [id=" + id + ", status=" + status + ", fname=" + fname + ", lname=" + lname + ", email=" + email
 				+ ", phone=" + phone + ", city=" + city + ", state=" + state + ", country=" + country + ", dob=" + dob
 				+ ", feedbacks=" + feedbacks + ", movieReviews=" + movieReviews + ", wishlist=" + wishlist + "]";
 	}
-	
+
 }

@@ -74,8 +74,7 @@ public class Movie {
 	private List<User> wishlistedBy;
 
 	public Movie(String name, int runTime, long budget, long boxOffice, String censorRating, String story,
-			Date releaseDate, Director director, Production production, List<Writer> writers, List<Actor> actors,
-			List<Language> languages, List<Genre> genres) {
+			Date releaseDate) {
 		super();
 		this.name = name;
 		this.runTime = runTime;
@@ -84,12 +83,12 @@ public class Movie {
 		this.censorRating = censorRating;
 		this.story = story;
 		this.releaseDate = releaseDate;
-		this.director = director;
-		this.production = production;
-		this.writers = writers;
-		this.actors = actors;
-		this.languages = languages;
-		this.genres = genres;
+		this.director = null;
+		this.production = null;
+		this.writers = new ArrayList<Writer>();
+		this.actors = new ArrayList<Actor>();
+		this.languages = new ArrayList<Language>();
+		this.genres = new ArrayList<Genre>();
 		this.movieAwards = new ArrayList<MovieAward>();
 		this.movieReview = new ArrayList<MovieReview>();
 		this.wishlistedBy = new ArrayList<User>();

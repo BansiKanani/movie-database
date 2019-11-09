@@ -15,33 +15,35 @@ import com.brk.mdb.repositories.GenreRepository;
 public class GenreServiceImpl implements GenreService {
 
 	@Autowired
-	private GenreRepository gR;
+	private GenreRepository genreRepo;
 
 	@Override
 	public GenreTO insertOne(String name) {
 		Genre g = new Genre(name);
-		gR.saveAndFlush(g);
+		genreRepo.save(g);
 		return new GenreTO(g);
 	}
 
 	@Override
 	public List<MovieTO> getMovies(long genreId) {
-		return gR.findById(genreId).orElseThrow().getMovies().stream().map(m -> new MovieTO(m)).collect(Collectors.toList());	
+		return genreRepo.findById(genreId).orElseThrow().getMovies().stream().map(m -> new MovieTO(m))
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public GenreTO getById(long genreId) {
-		return new GenreTO(gR.findById(genreId).orElseThrow());
+		return new GenreTO(genreRepo.findById(genreId).orElseThrow());
 	}
 
 	@Override
 	public List<GenreTO> getByName(String name) {
-		return gR.findByNameLike("%"+name+"%").stream().map(g -> new GenreTO(g)).collect(Collectors.toList());
+		return genreRepo.findByNameLike("%" + name + "%").stream().map(g -> new GenreTO(g))
+				.collect(Collectors.toList());
 	}
 
 	@Override
 	public List<GenreTO> getAll() {
-		return gR.findAll().stream().map(g -> new GenreTO(g)).collect(Collectors.toList());
+		return genreRepo.findAll().stream().map(g -> new GenreTO(g)).collect(Collectors.toList());
 	}
 
 }

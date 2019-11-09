@@ -16,37 +16,29 @@ import com.brk.mdb.repositories.UserRepository;
 public class FeedbackServiceImpl implements FeedbackService {
 
 	@Autowired
-	private FeedbackRepository fR;
+	private FeedbackRepository feedbackRepo;
 
 	@Autowired
-	private UserRepository uR;
+	private UserRepository userRepo;
 
-	
 	@Override
 	public FeedbackTO insertOne(long userId, String message) {
-		User u = uR.findById(userId).orElseThrow();
+		User u = userRepo.findById(userId).orElseThrow();
 		Feedback fb = new Feedback(u, message);
-		fR.saveAndFlush(fb);
+		feedbackRepo.save(fb);
+		u.getFeedbacks().add(fb);
 		return new FeedbackTO(fb);
 	}
 
 	@Override
 	public List<FeedbackTO> getByUser(long userId) {
-
-//		List<FeedbackTO> fbTOs = new ArrayList<FeedbackTO>();
-
-		User u = uR.findById(userId).orElseThrow();
-		return fR.findByUser(u).stream().map(fb -> new FeedbackTO(fb)).collect(Collectors.toList());
+		User u = userRepo.findById(userId).orElseThrow();
+		return feedbackRepo.findByUser(u).stream().map(fb -> new FeedbackTO(fb)).collect(Collectors.toList());
 	}
 
 	@Override
 	public List<FeedbackTO> getAll() {
-
-//		List<Feedback> fbs = fR.findAll();
-//		List<FeedbackTO> fbTOs = fbs.stream().map(fb -> new FeedbackTO(fb)).collect(Collectors.toList());
-//		return fbTOs;
-		
-		return fR.findAll().stream().map(fb -> new FeedbackTO(fb)).collect(Collectors.toList());
+		return feedbackRepo.findAll().stream().map(fb -> new FeedbackTO(fb)).collect(Collectors.toList());
 	}
 
 }

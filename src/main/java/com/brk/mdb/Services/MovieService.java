@@ -2,21 +2,22 @@ package com.brk.mdb.Services;
 
 import java.util.Date;
 import java.util.List;
-import java.util.Set;
 
 import com.brk.mdb.modelsTO.ActorTO;
 import com.brk.mdb.modelsTO.AwardTO;
+import com.brk.mdb.modelsTO.DirectorTO;
+import com.brk.mdb.modelsTO.GenreTO;
 import com.brk.mdb.modelsTO.LanguageTO;
 import com.brk.mdb.modelsTO.MovieReviewTO;
 import com.brk.mdb.modelsTO.MovieTO;
+import com.brk.mdb.modelsTO.ProductionTO;
 import com.brk.mdb.modelsTO.UserTO;
 import com.brk.mdb.modelsTO.WriterTO;
 
 public interface MovieService {
 
 	MovieTO insertOne(String name, int runTime, long budget, long boxOffice, String censorRating, String story,
-			Date releaseDate, long directorId, long productionId, Set<Long> writersId, Set<Long> actorsId,
-			Set<Long> languages, Set<Long> genres);
+			Date releaseDate);
 
 	List<MovieTO> getAll();
 
@@ -29,9 +30,9 @@ public interface MovieService {
 	// awards
 	List<AwardTO> getAwards(long movieId);
 
-	List<AwardTO> addAward(long movieId, long awardId, Date d);
+	boolean addAward(long movieId, long awardId, Date d);
 
-	List<AwardTO> removeAward(long movieId, long awardId);
+	boolean removeAward(long movieId, long awardId);
 
 	// wish list
 	List<UserTO> getWishListedBy(long movieId);
@@ -39,9 +40,9 @@ public interface MovieService {
 	// reviews
 	List<MovieReviewTO> getReviews(long movieId);
 
-	List<MovieReviewTO> addReview(long movieId, long userId, int rating, String comment);
+	boolean addReview(long movieId, long userId, int rating, String comment);
 
-	List<MovieReviewTO> removeReview(long movieId, long userId);
+	boolean removeReview(long movieId, long userId);
 
 	List<MovieTO> getByDate(Date earliest, Date latest);
 
@@ -51,27 +52,44 @@ public interface MovieService {
 
 	List<MovieTO> getByBoxOffice(long min, long max);
 
-	MovieTO updateBoxOffice(long movieId, long newIncome);
+	boolean updateBoxOffice(long movieId, long newIncome);
 
 	// actors
 	List<ActorTO> getActors(long movieId);
 
-	MovieTO addActor(long movieId, long actorId);
+	boolean addActor(long movieId, long actorId);
 
-	MovieTO removeActor(long movieId, long actorId);
+	boolean removeActor(long movieId, long actorId);
 
 	// languages
-	List<LanguageTO> getLang(long movieId);
+	List<LanguageTO> getLanguages(long movieId);
 
-	MovieTO addLang(long movieId, long langId);
+	boolean addLanguage(long movieId, long langId);
 
-	MovieTO removeLang(long movieId, long langId);
+	boolean removeLanguage(long movieId, long langId);
+	
+	// genres
+	List<GenreTO> getGenres(long movieId);
+
+	boolean addGenre(long movieId, long genreId);
+
+	boolean removeGenre(long movieId, long genreId);
 
 	// writers
 	List<WriterTO> getWriters(long movieId);
 
-	MovieTO addWriter(long movieId, long writerId);
+	boolean addWriter(long movieId, long writerId);
 
-	MovieTO removeWriter(long movieId, long writerId);
+	boolean removeWriter(long movieId, long writerId);
+
+	// director
+	DirectorTO getDirector(long movieId);
+
+	boolean setDirector(long movieId, long directorId);
+
+	// production
+	ProductionTO getProduction(long movieId);
+
+	boolean setProduction(long movieId, long productionId);
 
 }

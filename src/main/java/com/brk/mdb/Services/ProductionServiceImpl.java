@@ -20,7 +20,7 @@ public class ProductionServiceImpl implements ProductionService {
 	@Override
 	public ProductionTO insertOne(String name) {
 		Production p = new Production(name);
-		pR.saveAndFlush(p);
+		pR.save(p);
 		return new ProductionTO(p);
 	}
 
