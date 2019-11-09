@@ -28,4 +28,9 @@ public class Writer {
 		super();
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Writer [id=" + id + ", name=" + name + ", movies=" + movies + "]";
+	}
 }

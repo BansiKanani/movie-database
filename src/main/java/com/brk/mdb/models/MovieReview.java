@@ -67,4 +67,9 @@ public class MovieReview {
 		result = prime * result + ((user == null) ? 0 : user.hashCode());
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "MovieReview [movie=" + movie + ", user=" + user + ", rating=" + rating + ", comment=" + comment + "]";
+	}
 }

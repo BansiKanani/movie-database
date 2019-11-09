@@ -70,4 +70,9 @@ public class MovieAward {
 		result = prime * result + ((movie == null) ? 0 : movie.hashCode());
 		return result;
 	}
+
+	@Override
+	public String toString() {
+		return "MovieAward [movie=" + movie + ", award=" + award + ", date=" + date + "]";
+	}
 }

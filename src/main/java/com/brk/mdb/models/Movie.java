@@ -103,5 +103,4 @@ public class Movie {
 				+ ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
 	}
 
-
 }

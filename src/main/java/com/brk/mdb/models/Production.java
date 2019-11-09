@@ -28,4 +28,9 @@ public class Production {
 		super();
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Production [id=" + id + ", name=" + name + ", movies=" + movies + "]";
+	}
 }

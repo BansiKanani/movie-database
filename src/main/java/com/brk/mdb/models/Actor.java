@@ -51,5 +51,4 @@ public class Actor {
 		return "Actor [id=" + id + ", name=" + name + ", height=" + height + ", city=" + city + ", state=" + state
 				+ ", country=" + country + ", dob=" + dob + ", movies=" + movies + "]";
 	}
-
 }

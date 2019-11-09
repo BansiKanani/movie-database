@@ -28,4 +28,9 @@ public class Feedback {
 		this.message = message;
 	}
 
+	@Override
+	public String toString() {
+		return "Feedback [id=" + id + ", user=" + user + ", message=" + message + "]";
+	}
+
 }

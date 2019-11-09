@@ -27,4 +27,9 @@ public class Language {
 		super();
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Language [id=" + id + ", name=" + name + ", movies=" + movies + "]";
+	}
 }

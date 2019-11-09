@@ -28,4 +28,9 @@ public class Director {
 		super();
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Director [id=" + id + ", name=" + name + ", movies=" + movies + "]";
+	}
 }

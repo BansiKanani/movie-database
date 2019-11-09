@@ -28,4 +28,9 @@ public class Award {
 		super();
 		this.name = name;
 	}
+
+	@Override
+	public String toString() {
+		return "Award [id=" + id + ", name=" + name + ", movieAwards=" + movieAwards + "]";
+	}
 }
