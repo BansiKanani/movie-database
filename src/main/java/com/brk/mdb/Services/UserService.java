@@ -8,7 +8,7 @@ import com.brk.mdb.modelsTO.UserTO;
 
 public interface UserService {
 
-	UserTO insertUser(String fname, String lname, String email, long phone, Date dob, String city, String state,
+	UserTO insertOne(String fname, String lname, String email, long phone, Date dob, String city, String state,
 			String country);
 
 	boolean rateMovie(long userId, long movieId, int rating, String comment);

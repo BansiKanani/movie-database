@@ -2,7 +2,6 @@ package com.brk.mdb.Services;
 
 import java.text.SimpleDateFormat;
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.stream.Collectors;
@@ -11,7 +10,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import com.brk.mdb.models.Actor;
-import com.brk.mdb.models.Movie;
 import com.brk.mdb.modelsTO.ActorTO;
 import com.brk.mdb.modelsTO.MovieTO;
 import com.brk.mdb.repositories.ActorRepository;
@@ -24,7 +22,7 @@ public class ActorServiceImpl implements ActorService {
 
 	@Override
 	public ActorTO insertOne(String name, Date dob, int height, String city, String state, String country) {
-		Actor a = new Actor(name, height, city, state, country, dob, new ArrayList<Movie>());
+		Actor a = new Actor(name, height, city, state, country, dob);
 		actorRepo.save(a);
 		return new ActorTO(a);
 	}

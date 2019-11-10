@@ -14,4 +14,9 @@ public class AwardTO {
 		this.id = a.getId();
 		this.name = a.getName();
 	}
+
+	@Override
+	public String toString() {
+		return "AwardTO [id=" + id + ", name=" + name + "]";
+	}
 }

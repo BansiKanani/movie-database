@@ -13,10 +13,15 @@ public class MovieReviewTO {
 	private String comment;
 
 	public MovieReviewTO(MovieReview mR) {
-		super();
 		this.movie = new MovieTO(mR.getMovie());
 		this.user = new UserTO(mR.getUser());
 		this.rating = mR.getRating();
 		this.comment = mR.getComment();
+	}
+
+	@Override
+	public String toString() {
+		return "MovieReviewTO [movie=(" + movie.getId() + ")" + movie.getName() + ", user=" + user.getId() + ")"
+				+ user.getFname() + ", rating=" + rating + ", comment=" + comment + "]";
 	}
 }

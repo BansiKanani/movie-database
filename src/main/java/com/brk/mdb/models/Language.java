@@ -1,5 +1,6 @@
 package com.brk.mdb.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -24,12 +25,7 @@ public class Language {
 	private List<Movie> movies;
 
 	public Language(String name) {
-		super();
 		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Language [id=" + id + ", name=" + name + ", movies=" + movies + "]";
+		this.movies = new ArrayList<>();
 	}
 }

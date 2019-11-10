@@ -51,7 +51,6 @@ public class User {
 
 	public User(String fname, String lname, String email, long phone, String city, String state, String country,
 			Date dob) {
-		super();
 		this.fname = fname;
 		this.lname = lname;
 		this.email = email;
@@ -65,12 +64,4 @@ public class User {
 		this.movieReviews = new ArrayList<>();
 		this.wishlist = new ArrayList<>();
 	}
-
-	@Override
-	public String toString() {
-		return "User [id=" + id + ", status=" + status + ", fname=" + fname + ", lname=" + lname + ", email=" + email
-				+ ", phone=" + phone + ", city=" + city + ", state=" + state + ", country=" + country + ", dob=" + dob
-				+ ", feedbacks=" + feedbacks + ", movieReviews=" + movieReviews + ", wishlist=" + wishlist + "]";
-	}
-
 }

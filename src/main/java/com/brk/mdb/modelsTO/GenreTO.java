@@ -14,4 +14,9 @@ public class GenreTO {
 		this.id = g.getId();
 		this.name = g.getName();
 	}
+
+	@Override
+	public String toString() {
+		return "GenreTO [id=" + id + ", name=" + name + "]";
+	}
 }

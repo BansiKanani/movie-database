@@ -30,7 +30,7 @@ public class UserServiceImpl implements UserService {
 	private MovieReviewRepository movieReviewRepo;
 
 	@Override
-	public UserTO insertUser(String fname, String lname, String email, long phone, Date dob, String city, String state,
+	public UserTO insertOne(String fname, String lname, String email, long phone, Date dob, String city, String state,
 			String country) {
 		User u = new User(fname, lname, email, phone, city, state, country, dob);
 		userRepo.save(u);

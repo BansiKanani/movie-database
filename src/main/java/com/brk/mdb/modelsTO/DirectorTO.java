@@ -11,8 +11,12 @@ public class DirectorTO {
 	private String name;
 
 	public DirectorTO(Director d) {
-
 		this.id = d.getId();
 		this.name = d.getName();
+	}
+
+	@Override
+	public String toString() {
+		return "DirectorTO [id=" + id + ", name=" + name + "]";
 	}
 }

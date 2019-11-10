@@ -33,4 +33,11 @@ public class UserTO {
 		this.country = u.getCountry();
 	}
 
+	@Override
+	public String toString() {
+		return "UserTO [id=" + id + ", status=" + status + ", fname=" + fname + ", lname=" + lname + ", dob=" + dob
+				+ ", email=" + email + ", phone=" + phone + ", city=" + city + ", state=" + state + ", country="
+				+ country + "]";
+	}
+
 }

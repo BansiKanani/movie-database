@@ -14,4 +14,9 @@ public class WriterTO {
 		this.id = w.getId();
 		this.name = w.getName();
 	}
+
+	@Override
+	public String toString() {
+		return "WriterTO [id=" + id + ", name=" + name + "]";
+	}
 }

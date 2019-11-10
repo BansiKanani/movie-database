@@ -24,9 +24,9 @@ import lombok.Data;
 public class Movie {
 
 	@Id
-	@GeneratedValue(strategy = GenerationType.SEQUENCE)
+	@GeneratedValue(strategy = GenerationType.AUTO)
 	private long id;
-
+	
 	private String name;
 
 	private int runTime;
@@ -75,7 +75,6 @@ public class Movie {
 
 	public Movie(String name, int runTime, long budget, long boxOffice, String censorRating, String story,
 			Date releaseDate) {
-		super();
 		this.name = name;
 		this.runTime = runTime;
 		this.budget = budget;
@@ -85,22 +84,12 @@ public class Movie {
 		this.releaseDate = releaseDate;
 		this.director = null;
 		this.production = null;
-		this.writers = new ArrayList<Writer>();
-		this.actors = new ArrayList<Actor>();
-		this.languages = new ArrayList<Language>();
-		this.genres = new ArrayList<Genre>();
-		this.movieAwards = new ArrayList<MovieAward>();
-		this.movieReview = new ArrayList<MovieReview>();
-		this.wishlistedBy = new ArrayList<User>();
+		this.writers = new ArrayList<>();
+		this.actors = new ArrayList<>();
+		this.languages = new ArrayList<>();
+		this.genres = new ArrayList<>();
+		this.movieAwards = new ArrayList<>();
+		this.movieReview = new ArrayList<>();
+		this.wishlistedBy = new ArrayList<>();
 	}
-
-	@Override
-	public String toString() {
-		return "Movie [id=" + id + ", name=" + name + ", runTime=" + runTime + ", budget=" + budget + ", boxOffice="
-				+ boxOffice + ", censorRating=" + censorRating + ", story=" + story + ", releaseDate=" + releaseDate
-				+ ", director=" + director + ", production=" + production + ", writers=" + writers + ", actors="
-				+ actors + ", languages=" + languages + ", genres=" + genres + ", movieAwards=" + movieAwards
-				+ ", movieReview=" + movieReview + ", wishlistedBy=" + wishlistedBy + "]";
-	}
-
 }

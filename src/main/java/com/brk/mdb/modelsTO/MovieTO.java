@@ -19,7 +19,7 @@ public class MovieTO {
 	private Date releaseDate;
 
 	public MovieTO(Movie m) {
-
+		this.id = m.getId();
 		this.name = m.getName();
 		this.runTime = m.getRunTime();
 		this.budget = m.getBudget();
@@ -28,6 +28,13 @@ public class MovieTO {
 		this.censorRating = m.getCensorRating();
 		this.releaseDate = m.getReleaseDate();
 
+	}
+
+	@Override
+	public String toString() {
+		return "MovieTO [id=" + id + ", name=" + name + ", runTime=" + runTime + ", budget=" + budget + ", boxOffice="
+				+ boxOffice + ", story=" + story + ", censorRating=" + censorRating + ", releaseDate=" + releaseDate
+				+ "]";
 	}
 
 }

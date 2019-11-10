@@ -1,5 +1,6 @@
 package com.brk.mdb.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.Entity;
@@ -25,12 +26,7 @@ public class Director {
 	private List<Movie> movies;
 
 	public Director(String name) {
-		super();
 		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Director [id=" + id + ", name=" + name + ", movies=" + movies + "]";
+		this.movies = new ArrayList<>();
 	}
 }

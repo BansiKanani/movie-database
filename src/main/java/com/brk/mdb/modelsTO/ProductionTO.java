@@ -14,4 +14,9 @@ public class ProductionTO {
 		this.id = p.getId();
 		this.name = p.getName();
 	}
+
+	@Override
+	public String toString() {
+		return "ProductionTO [id=" + id + ", name=" + name + "]";
+	}
 }

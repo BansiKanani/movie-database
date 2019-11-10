@@ -14,4 +14,9 @@ public class LanguageTO {
 		this.id = l.getId();
 		this.name = l.getName();
 	}
+
+	@Override
+	public String toString() {
+		return "LanguageTO [id=" + id + ", name=" + name + "]";
+	}
 }

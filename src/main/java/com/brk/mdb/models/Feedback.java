@@ -23,14 +23,7 @@ public class Feedback {
 	private String message;
 
 	public Feedback(User user, String message) {
-		super();
 		this.user = user;
 		this.message = message;
 	}
-
-	@Override
-	public String toString() {
-		return "Feedback [id=" + id + ", user=" + user + ", message=" + message + "]";
-	}
-
 }

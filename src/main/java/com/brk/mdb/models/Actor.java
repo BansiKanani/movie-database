@@ -1,5 +1,6 @@
 package com.brk.mdb.models;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
@@ -35,7 +36,7 @@ public class Actor {
 	@ManyToMany(mappedBy = "actors")
 	private List<Movie> movies;
 
-	public Actor(String name, int height, String city, String state, String country, Date dob, List<Movie> movies) {
+	public Actor(String name, int height, String city, String state, String country, Date dob) {
 		super();
 		this.name = name;
 		this.height = height;
@@ -43,12 +44,6 @@ public class Actor {
 		this.state = state;
 		this.country = country;
 		this.dob = dob;
-		this.movies = movies;
-	}
-
-	@Override
-	public String toString() {
-		return "Actor [id=" + id + ", name=" + name + ", height=" + height + ", city=" + city + ", state=" + state
-				+ ", country=" + country + ", dob=" + dob + ", movies=" + movies + "]";
+		this.movies = new ArrayList<>();;
 	}
 }

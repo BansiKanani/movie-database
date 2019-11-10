@@ -1,5 +1,6 @@
 package com.brk.mdb.models;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import javax.persistence.CascadeType;
@@ -25,12 +26,7 @@ public class Award {
 	private List<MovieAward> movieAwards;
 
 	public Award(String name) {
-		super();
 		this.name = name;
-	}
-
-	@Override
-	public String toString() {
-		return "Award [id=" + id + ", name=" + name + ", movieAwards=" + movieAwards + "]";
+		this.movieAwards = new ArrayList<>();
 	}
 }

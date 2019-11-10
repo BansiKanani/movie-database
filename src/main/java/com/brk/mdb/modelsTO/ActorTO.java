@@ -27,4 +27,10 @@ public class ActorTO {
 		this.dob = a.getDob();
 	}
 
+	@Override
+	public String toString() {
+		return "ActorTO [id=" + id + ", name=" + name + ", height=" + height + ", city=" + city + ", state=" + state
+				+ ", country=" + country + ", dob=" + dob + "]";
+	}
+
 }

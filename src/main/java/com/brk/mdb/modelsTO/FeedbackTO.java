@@ -12,8 +12,13 @@ public class FeedbackTO {
 	private String message;
 	
 	public FeedbackTO(Feedback f) {
-		super();
+		this.id = f.getId();
 		this.user = new UserTO(f.getUser());
 		this.message = f.getMessage();
+	}
+
+	@Override
+	public String toString() {
+		return "FeedbackTO [id=" + id + ", user=" + user + ", message=" + message + "]";
 	}
 }
