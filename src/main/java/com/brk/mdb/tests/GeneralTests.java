@@ -44,6 +44,20 @@ public class GeneralTests {
 		Date dt9 = new SimpleDateFormat("yyyy/MM/dd").parse("2000/5/12");
 		Date dt10 = new SimpleDateFormat("yyyy/MM/dd").parse("2010/2/16");
 
+		
+//		 add users
+		UserTO usr1 = uS.insertOne("Savan", "Hapani", "sh@mail.com", 1231231231L, dt1, "Ahmedabad", "Gujarat", "India");
+		UserTO usr2 = uS.insertOne("Taher", "Mandapvala", "sh@mail.com", 6789067890L, dt2, "Bharuch", "Gujarat",
+				"India");
+		UserTO usr3 = uS.insertOne("Parth", "Mangukiya", "pm@mail.com", 1234512345L, dt3, "Surat", "Gujarat", "India");
+		UserTO usr4 = uS.insertOne("Keval", "Mehta", "km@mail.com", 9876543210L, dt4, "Rajkot", "Gujarat", "India");
+		UserTO usr5 = uS.insertOne("Riya", "Sharma", "rs@mail.com", 5675675675L, dt5, "Surat", "Gujarat", "India");
+		
+
+		// feedbacks
+		FeedbackTO fb1 = fS.insertOne(usr1.getId(), "Very useful system.");
+		FeedbackTO fb2 = fS.insertOne(usr2.getId(), "I found a bug.");
+		FeedbackTO fb3 = fS.insertOne(usr3.getId(), "Amazing system.");
 
 		ActorTO act1 = actS.insertOne("Leonardo DiCaprio", dt1, 183, "Jamjodhpur", "Gujarat", "India");
 		ActorTO act2 = actS.insertOne("Tom Hanks", dt2, 172, "Diu", "Gujarat", "India");
@@ -113,20 +127,18 @@ public class GeneralTests {
 		mvS.addActor(mov2.getId(), act6.getId());
 		mvS.addActor(mov3.getId(), act1.getId());
 		mvS.addActor(mov3.getId(), act2.getId());
-		mvS.addActor(mov3.getId(), act4.getId());
 		mvS.addActor(mov3.getId(), act3.getId());
+		mvS.addActor(mov3.getId(), act4.getId());
 		mvS.addActor(mov4.getId(), act4.getId());
 		mvS.addActor(mov4.getId(), act5.getId());
-		mvS.addActor(mov4.getId(), act5.getId());
+		mvS.addActor(mov4.getId(), act6.getId());
 		mvS.addActor(mov5.getId(), act6.getId());
 		mvS.addActor(mov6.getId(), act6.getId());
 		mvS.addActor(mov7.getId(), act7.getId());
 		mvS.addActor(mov8.getId(), act7.getId());
 		mvS.addActor(mov9.getId(), act2.getId());
 		mvS.addActor(mov10.getId(), act3.getId());
-		
-		
-		
+
 		// add director
 		mvS.setDirector(mov1.getId(), dir1.getId());
 		mvS.setDirector(mov2.getId(), dir2.getId());
@@ -205,18 +217,6 @@ public class GeneralTests {
 		mvS.setProduction(mov9.getId(), prod2.getId());
 		mvS.setProduction(mov10.getId(), prod3.getId());
 		
-		// add users
-		UserTO usr1 = uS.insertOne("Savan", "Hapani", "sh@mail.com", 1231231231L, dt1, "Ahmedabad", "Gujarat", "India");
-		UserTO usr2 = uS.insertOne("Taher", "Mandapvala", "sh@mail.com", 6789067890L, dt2, "Bharuch", "Gujarat",
-				"India");
-		UserTO usr3 = uS.insertOne("Parth", "Mangukiya", "pm@mail.com", 1234512345L, dt3, "Surat", "Gujarat", "India");
-		UserTO usr4 = uS.insertOne("Keval", "Mehta", "km@mail.com", 9876543210L, dt4, "Rajkot", "Gujarat", "India");
-		UserTO usr5 = uS.insertOne("Riya", "Sharma", "rs@mail.com", 5675675675L, dt5, "Surat", "Gujarat", "India");
-		
-		FeedbackTO fb1 = fS.insertOne(usr1.getId(), "Very useful system.");
-		FeedbackTO fb2 = fS.insertOne(usr2.getId(), "I found a bug.");
-		FeedbackTO fb3 = fS.insertOne(usr3.getId(), "Amazing system.");
-		
 		// add reviews
 		mvS.addReview(mov1.getId(), usr1.getId(), 8, "Amazing movie");
 		mvS.addReview(mov1.getId(), usr2.getId(), 4, "not good");
@@ -226,16 +226,18 @@ public class GeneralTests {
 		mvS.addReview(mov2.getId(), usr2.getId(), 6, "light weight");
 		mvS.addReview(mov3.getId(), usr1.getId(), 1, "time waste");
 		mvS.addReview(mov3.getId(), usr5.getId(), 7, "complicated to understand");
-		mvS.addReview(mov3.getId(), usr4.getId(), 8, "nice my kid liked it");
+		mvS.addReview(mov3.getId(), usr4.getId(), 8, "nice my kid liked it");		
 		mvS.addReview(mov4.getId(), usr5.getId(), 0, "it's total waste of money and time");
-		mvS.addReview(mov5.getId(), usr2.getId(), 8, "nice to watch with friends");
 		mvS.addReview(mov5.getId(), usr1.getId(), 3, "complicated to understand");
+		mvS.addReview(mov5.getId(), usr2.getId(), 8, "nice to watch with friends");
 		
 		// add wish list
 		uS.addToWishlist(usr1.getId(), mov1.getId());
 		uS.addToWishlist(usr1.getId(), mov2.getId());
 		uS.addToWishlist(usr1.getId(), mov3.getId());
 		uS.addToWishlist(usr2.getId(), mov1.getId());
+		
+		
 		
 		// print all things
 		

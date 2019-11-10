@@ -27,6 +27,7 @@ public class UserServiceImpl implements UserService {
 	@Autowired
 	private MovieRepository movieRepo;
 	
+	@Autowired
 	private MovieReviewRepository movieReviewRepo;
 
 	@Override
