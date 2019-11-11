@@ -8,7 +8,7 @@ import org.springframework.stereotype.Service;
 
 import com.brk.mdb.models.Award;
 import com.brk.mdb.modelsTO.AwardTO;
-import com.brk.mdb.modelsTO.MovieTO;
+import com.brk.mdb.modelsTO.MovieAwardTO;
 import com.brk.mdb.repositories.AwardRepository;
 
 @Service("awardService")
@@ -25,8 +25,8 @@ public class AwardServiceImpl implements AwardService {
 	}
 
 	@Override
-	public List<MovieTO> getMovies(long awardId) {
-		return awardRepo.findById(awardId).orElseThrow().getMovieAwards().stream().map(mA -> new MovieTO(mA.getMovie()))
+	public List<MovieAwardTO> getMovieAwards(long awardId) {
+		return awardRepo.findById(awardId).orElseThrow().getMovieAwards().stream().map(mA -> new MovieAwardTO(mA))
 				.collect(Collectors.toList());
 	}
 
@@ -37,7 +37,8 @@ public class AwardServiceImpl implements AwardService {
 
 	@Override
 	public List<AwardTO> getByName(String name) {
-		return awardRepo.findByNameLike("%" + name + "%").stream().map(a -> new AwardTO(a)).collect(Collectors.toList());
+		return awardRepo.findByNameLike("%" + name + "%").stream().map(a -> new AwardTO(a))
+				.collect(Collectors.toList());
 	}
 
 	@Override

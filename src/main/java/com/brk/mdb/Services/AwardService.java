@@ -3,13 +3,13 @@ package com.brk.mdb.Services;
 import java.util.List;
 
 import com.brk.mdb.modelsTO.AwardTO;
-import com.brk.mdb.modelsTO.MovieTO;
+import com.brk.mdb.modelsTO.MovieAwardTO;
 
 public interface AwardService {
 
 	AwardTO insertOne(String name);
 
-	List<MovieTO> getMovies(long awardId);
+	List<MovieAwardTO> getMovieAwards(long awardId);
 	
 	AwardTO getById(long awardId);
 
