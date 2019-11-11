@@ -29,4 +29,9 @@ public class Writer {
 		this.name = name;
 		this.movies  = new ArrayList<>();
 	}
+
+	public Writer() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

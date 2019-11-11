@@ -28,4 +28,9 @@ public class Genre {
 		this.name = name;
 		this.movies = new ArrayList<>();
 	}
+
+	public Genre() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

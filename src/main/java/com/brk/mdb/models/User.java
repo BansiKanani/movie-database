@@ -64,4 +64,9 @@ public class User {
 		this.movieReviews = new ArrayList<>();
 		this.wishlist = new ArrayList<>();
 	}
+
+	public User() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

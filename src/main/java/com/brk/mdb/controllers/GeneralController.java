@@ -62,6 +62,8 @@ public class GeneralController {
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
+		
+		model.addAttribute("users",userService.getAll());
 
 //		GeneralTests.printAllMovies(movieService.getByName("Titanic"));
 //

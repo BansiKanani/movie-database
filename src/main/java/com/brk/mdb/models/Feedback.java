@@ -26,4 +26,9 @@ public class Feedback {
 		this.user = user;
 		this.message = message;
 	}
+
+	public Feedback() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

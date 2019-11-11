@@ -46,4 +46,8 @@ public class Actor {
 		this.dob = dob;
 		this.movies = new ArrayList<>();;
 	}
+
+	public Actor() {
+		super();
+	}
 }

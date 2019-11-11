@@ -29,4 +29,8 @@ public class Award {
 		this.name = name;
 		this.movieAwards = new ArrayList<>();
 	}
+
+	public Award() {
+		super();
+	}
 }

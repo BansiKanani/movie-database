@@ -32,4 +32,9 @@ public class MovieReview {
 		this.rating = rating;
 		this.comment = comment;
 	}
+
+	public MovieReview() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

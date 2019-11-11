@@ -28,4 +28,9 @@ public class Language {
 		this.name = name;
 		this.movies = new ArrayList<>();
 	}
+
+	public Language() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

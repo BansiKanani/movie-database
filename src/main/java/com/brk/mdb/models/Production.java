@@ -29,4 +29,9 @@ public class Production {
 		this.name = name;
 		this.movies = new ArrayList<>();
 	}
+
+	public Production() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

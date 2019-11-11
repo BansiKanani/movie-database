@@ -35,4 +35,9 @@ public class MovieAward {
 		this.award = award;
 		this.date = date;
 	}
+
+	public MovieAward() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }
