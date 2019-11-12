@@ -15,6 +15,10 @@ public class LanguageTO {
 		this.name = l.getName();
 	}
 
+	public LanguageTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "LanguageTO [id=" + id + ", name=" + name + "]";

@@ -26,4 +26,8 @@ public class Feedback {
 		this.user = user;
 		this.message = message;
 	}
+
+	public Feedback() {
+		super();
+	}
 }

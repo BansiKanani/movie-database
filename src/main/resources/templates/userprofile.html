@@ -1,0 +1,443 @@
+<!DOCTYPE>
+ <html xmlns:th="https://www.thymeleaf.org">
+
+ 
+
+<!-- userprofile14:04-->
+
+<head>
+	<!-- Basic need -->
+	<title>Movies DB</title>
+	<meta charset="UTF-8">
+	<meta name="description" content="">
+	<meta name="keywords" content="">
+	<meta name="author" content="">
+	<link rel="profile" th:href="@{/#}">
+
+	<!--Google Font-->
+	<link rel="stylesheet" type="text/css" th:href="@{http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600}" />
+	<!-- Mobile specific meta -->
+	<meta name=viewport content="width=device-width, initial-scale=1">
+	<meta name="format-detection" content="telephone-no">
+
+	<!-- CSS files -->
+	<meta name="author" content="Jayvir Rathi"> <link rel="stylesheet" type="text/css" th:href="@{/css/plugins.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+	<!--preloading-->
+	<div id="preloader">
+		<img class="logo" th:src="@{/images/logo1.jpg}" alt="" width="119" height="58">
+		<div id="status">
+			<span></span>
+			<span></span>
+		</div>
+	</div>
+	<!--end of preloading-->
+	<!--login form popup-->
+	<div class="login-wrapper" id="login-content">
+		<div class="login-content">
+			<a th:href="@{/#}" class="close">x</a>
+			<h3>Login</h3>
+			<form method="post" action="#">
+				<div class="row">
+					<label for="username">
+						Username:
+						<input type="text" name="username" id="username" placeholder="Hugh Jackman"
+							pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+					</label>
+				</div>
+
+				<div class="row">
+					<label for="password">
+						Password:
+						<input type="password" name="password" id="password" placeholder="******"
+							pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+							required="required" />
+					</label>
+				</div>
+				<div class="row">
+					<div class="remember">
+						<div>
+							<input type="checkbox" name="remember" value="Remember me"><span>Remember me</span>
+						</div>
+						<a th:href="@{/#}">Forget password ?</a>
+					</div>
+				</div>
+				<div class="row">
+					<button type="submit">Login</button>
+				</div>
+			</form>
+			<div class="row">
+				<p>Or via social</p>
+				<div class="social-btn-2">
+					<a class="fb" th:href="@{/#}"><i class="ion-social-facebook"></i>Facebook</a>
+					<a class="tw" th:href="@{/#}"><i class="ion-social-twitter"></i>twitter</a>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!--end of login form popup-->
+	<!--signup form popup-->
+	<div class="login-wrapper" id="signup-content">
+		<div class="login-content">
+			<a th:href="@{/#}" class="close">x</a>
+			<h3>sign up</h3>
+			<form method="post" action="#">
+				<div class="row">
+					<label for="username-2">
+						Username:
+						<input type="text" name="username" id="username-2" placeholder="Hugh Jackman"
+							pattern="^[a-zA-Z][a-zA-Z0-9-_\.]{8,20}$" required="required" />
+					</label>
+				</div>
+
+				<div class="row">
+					<label for="email-2">
+						your email:
+						<input type="password" name="email" id="email-2" placeholder=""
+							pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+							required="required" />
+					</label>
+				</div>
+				<div class="row">
+					<label for="password-2">
+						Password:
+						<input type="password" name="password" id="password-2" placeholder=""
+							pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+							required="required" />
+					</label>
+				</div>
+				<div class="row">
+					<label for="repassword-2">
+						re-type Password:
+						<input type="password" name="password" id="repassword-2" placeholder=""
+							pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$"
+							required="required" />
+					</label>
+				</div>
+				<div class="row">
+					<button type="submit">sign up</button>
+				</div>
+			</form>
+		</div>
+	</div>
+	<!--end of signup form popup-->
+
+	<!-- BEGIN | Header -->
+	<header class="ht-header">
+		<div class="container">
+			<nav class="navbar navbar-default navbar-custom">
+				<!-- Brand and toggle get grouped for better mobile display -->
+				<div class="navbar-header logo">
+					<div class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+						<span class="sr-only">Toggle navigation</span>
+						<div id="nav-icon1">
+							<span></span>
+							<span></span>
+							<span></span>
+						</div>
+					</div>
+					<a th:href="@{/index-2}"><img class="logo" th:src="@{/images/logo1.jpg}" alt="" width="119"
+							height="58"></a>
+				</div>
+				<!-- Collect the nav links, forms, and other content for toggling -->
+				<div class="collapse navbar-collapse flex-parent" id="bs-example-navbar-collapse-1">
+					<ul class="nav navbar-nav flex-child-menu menu-left">
+						<li class="hidden">
+							<a th:href="@{/#page-top}"></a>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown">
+								Home <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a th:href="@{/index-2}">Home 01</a></li>
+								<li><a th:href="@{/homev2}">Home 02</a></li>
+								<li><a th:href="@{/homev3}">Home 03</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+								movies<i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li class="dropdown">
+									<a th:href="@{/#}" class="dropdown-toggle" data-toggle="dropdown">Movie grid<i
+											class="ion-ios-arrow-forward"></i></a>
+									<ul class="dropdown-menu level2">
+										<li><a th:href="@{/moviegrid}">Movie grid</a></li>
+										<li><a th:href="@{/moviegridfw}">movie grid full width</a></li>
+									</ul>
+								</li>
+								<li><a th:href="@{/movielist}">Movie list</a></li>
+								<li><a th:href="@{/moviesingle}">Movie single</a></li>
+								<li class="it-last"><a th:href="@{/seriessingle}">Series single</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+								celebrities <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a th:href="@{/celebritygrid01}">celebrity grid 01</a></li>
+								<li><a th:href="@{/celebritygrid02}">celebrity grid 02 </a></li>
+								<li><a th:href="@{/celebritylist}">celebrity list</a></li>
+								<li class="it-last"><a th:href="@{/celebritysingle}">celebrity single</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+								news <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a th:href="@{/bloglist}">blog List</a></li>
+								<li><a th:href="@{/bloggrid}">blog Grid</a></li>
+								<li class="it-last"><a th:href="@{/blogdetail}">blog Detail</a></li>
+							</ul>
+						</li>
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+								community <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a th:href="@{/userfavoritegrid}">user favorite grid</a></li>
+								<li><a th:href="@{/userfavoritelist}">user favorite list</a></li>
+								<li><a th:href="@{/userprofile}">user profile</a></li>
+								<li class="it-last"><a th:href="@{/userrate}">user rate</a></li>
+							</ul>
+						</li>
+					</ul>
+					<ul class="nav navbar-nav flex-child-menu menu-right">
+						<li class="dropdown first">
+							<a class="btn btn-default dropdown-toggle lv1" data-toggle="dropdown" data-hover="dropdown">
+								pages <i class="fa fa-angle-down" aria-hidden="true"></i>
+							</a>
+							<ul class="dropdown-menu level1">
+								<li><a th:href="@{/landing}">Landing</a></li>
+								<li><a th:href="@{/404}">404 Page</a></li>
+								<li class="it-last"><a th:href="@{/comingsoon}">Coming soon</a></li>
+							</ul>
+						</li>
+						<li><a th:href="@{/#}">Help</a></li>
+						<li class="loginLink"><a th:href="@{/#}">LOG In</a></li>
+						<li class="btn signupLink"><a th:href="@{/#}">sign up</a></li>
+					</ul>
+				</div>
+				<!-- /.navbar-collapse -->
+			</nav>
+
+			<!-- top search form -->
+			<div class="top-search">
+				<select>
+					<option value="united">TV show</option>
+					<option value="saab">Others</option>
+				</select>
+				<input type="text" placeholder="Search for a movie, TV Show or celebrity that you are looking for">
+			</div>
+		</div>
+	</header>
+	<!-- END | Header -->
+
+	<div class="hero user-hero">
+		<div class="container">
+			<div class="row">
+				<div class="col-md-12">
+					<div class="hero-ct">
+					
+					
+					<h1 th:text="'HI, ' 	+ ${ user.fname}" ></h1>
+					
+						<!-- <h1 th:text="${user.} ${user.lname}"></h1> -->
+						<ul class="breadcumb">
+							<li class="active"><a th:href="@{/#}">Home</a></li>
+							<li> <span class="ion-ios-arrow-right"></span>Profile</li>
+						</ul>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<div class="page-single">
+		<div class="container">
+			<div class="row ipad-width">
+				<div class="col-md-3 col-sm-12 col-xs-12">
+					<div class="user-information">
+						<div class="user-img">
+							<a th:href="@{/#}"><img th:src="@{/images/uploads/user-img.png}" alt=""><br></a>
+							<a th:href="@{/#}" class="redbtn">Change avatar</a>
+						</div>
+						<div class="user-fav">
+							<p>Account Details</p>
+							<ul>
+								<li class="active"><a th:href="@{/userprofile}">Profile</a></li>
+								<li><a th:href="@{/userfavoritelist}">Favorite movies</a></li>
+								<li><a th:href="@{/userrate}">Rated movies</a></li>
+							</ul>
+						</div>
+						<div class="user-fav">
+							<p>Others</p>
+							<ul>
+								<li><a th:href="@{/#}">Change password</a></li>
+								<li><a th:href="@{/#}">Log out</a></li>
+							</ul>
+						</div>
+					</div>
+				</div>
+				<div class="col-md-9 col-sm-12 col-xs-12">
+					<div class="form-style-1 user-pro" action="#">
+						<form action="#" class="user">
+							<h4>01. Profile details</h4>
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>First Name</label>
+									<input type="text" th:value="${user.fname}">
+								</div>
+								<div class="col-md-6 form-it">
+									<label>Last Name</label>
+									<input type="text" th:value="${user.lname}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>City</label>
+									<input type="text" th:value="${user.city} ">
+								</div>
+								<div class="col-md-6 form-it">
+									<label>Country</label>
+									<input type="text" th:value="${user.country}">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>State</label>
+									<input type="text" th:value="${user.state}">
+								</div>
+								<div class="col-md-6 form-it">
+									<label>Phone Number</label>
+									<input type="text" th:value="${user.phone}">
+										
+						
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>Email</label>
+									<input type="text" th:value="${user.email}">
+								</div>
+								<div class="col-md-6 form-it">
+									<label>Date of Birth</label>
+									<input type="text" th:value="${user.dob}">
+										
+						
+								</div>
+							</div>
+							
+							<div class="row">
+								<div class="col-md-2">
+									<input class="submit" type="submit" value="save">
+								</div>
+							</div>
+						</form>
+						<form action="#" class="password">
+							<h4>02. Change password</h4>
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>Old Password</label>
+									<input type="text" placeholder="**********">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>New Password</label>
+									<input type="text" placeholder="***************">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-6 form-it">
+									<label>Confirm New Password</label>
+									<input type="text" placeholder="*************** ">
+								</div>
+							</div>
+							<div class="row">
+								<div class="col-md-2">
+									<input class="submit" type="submit" value="change">
+								</div>
+							</div>
+						</form>
+					</div>
+				</div>
+			</div>
+		</div>
+	</div>
+	<!-- footer section-->
+	<footer class="ht-footer">
+		<div class="container">
+			<div class="flex-parent-ft">
+				<div class="flex-child-ft item1">
+					<a th:href="@{/index-2}"><img class="logo" th:src="@{/images/logo1.jpg}" alt=""></a>
+					<p>5th Avenue st, manhattan<br>
+						New York, NY 10001</p>
+					<p>Call us: <a th:href="@{/#}">(+01) 202 342 6789</a></p>
+				</div>
+				<div class="flex-child-ft item2">
+					<h4>Resources</h4>
+					<ul>
+						<li><a th:href="@{/#}">About</a></li>
+						<li><a th:href="@{/#}">Blockbuster</a></li>
+						<li><a th:href="@{/#}">Contact Us</a></li>
+						<li><a th:href="@{/#}">Forums</a></li>
+						<li><a th:href="@{/#}">Blog</a></li>
+						<li><a th:href="@{/#}">Help Center</a></li>
+					</ul>
+				</div>
+				<div class="flex-child-ft item3">
+					<h4>Legal</h4>
+					<ul>
+						<li><a th:href="@{/#}">Terms of Use</a></li>
+						<li><a th:href="@{/#}">Privacy Policy</a></li>
+						<li><a th:href="@{/#}">Security</a></li>
+					</ul>
+				</div>
+				<div class="flex-child-ft item4">
+					<h4>Account</h4>
+					<ul>
+						<li><a th:href="@{/#}">My Account</a></li>
+						<li><a th:href="@{/#}">Watchlist</a></li>
+						<li><a th:href="@{/#}">Collections</a></li>
+						<li><a th:href="@{/#}">User Guide</a></li>
+					</ul>
+				</div>
+				<div class="flex-child-ft item5">
+					<h4>Newsletter</h4>
+					<p>Subscribe to our newsletter system now <br> to get latest news from us.</p>
+					<form action="#">
+						<input type="text" placeholder="Enter your email...">
+					</form>
+					<a th:href="@{/#}" class="btn">Subscribe now <i class="ion-ios-arrow-forward"></i></a>
+				</div>
+			</div>
+		</div>
+		<div class="ft-copyright">
+			<div class="ft-left">
+				<p><a target="_blank" th:href="@{https://www.templateshub.net}">Templates Hub</a></p>
+			</div>
+			<div class="backtotop">
+				<p><a th:href="@{/#}" id="back-to-top">Back to top <i class="ion-ios-arrow-thin-up"></i></a></p>
+			</div>
+		</div>
+	</footer>
+	<!-- end of footer section-->
+
+	<script th:src="@{/js/jquery.js}"></script>
+	<script th:src="@{/js/plugins.js}"></script>
+	<script th:src="@{/js/plugins2.js}"></script>
+	<script th:src="@{/js/custom.js}"></script>
+</body>
+
+<!-- userprofile14:04-->
+
+</html>

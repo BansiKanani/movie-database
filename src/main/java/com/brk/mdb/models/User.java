@@ -64,4 +64,8 @@ public class User {
 		this.movieReviews = new ArrayList<>();
 		this.wishlist = new ArrayList<>();
 	}
+
+	public User() {
+		super();
+	}
 }

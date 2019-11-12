@@ -237,44 +237,50 @@ public class GeneralTests {
 		uS.addToWishlist(usr1.getId(), mov3.getId());
 		uS.addToWishlist(usr2.getId(), mov1.getId());
 		
+		List<MovieTO> mto = uS.getWishlist(usr1.getId());
+		
+		for (MovieTO movieTO : mto) {
+			System.out.println(movieTO);
+		}
+		
 		
 		
 		// print all things
-		
-		List<MovieTO> movies = mvS.getAll();
-		
-		for (MovieTO mto : movies) {
-			System.out.println("\n\n\n\n------------------------------------------------------");
-			System.out.println(mto);
-			System.out.println("----------Actors----------");
-			for (ActorTO x : mvS.getActors(mto.getId())) {
-				System.out.println(x);
-			}
-			System.out.println("----------Genres----------");
-			for (GenreTO x : mvS.getGenres(mto.getId())) {
-				System.out.println(x);
-			}
-			System.out.println("----------Writers----------");
-			for (WriterTO x : mvS.getWriters(mto.getId())) {
-				System.out.println(x);
-			}
-			System.out.println("----------Languages----------");
-			for (LanguageTO x : mvS.getLanguages(mto.getId())) {
-				System.out.println(x);
-			}
-			System.out.println("----------Reviews----------");
-			for (MovieReviewTO x : mvS.getReviews(mto.getId())) {
-				System.out.println(x);
-			}
-			System.out.println("----------Awards----------");
-			for (AwardTO x : mvS.getAwards(mto.getId())) {
-				System.out.println(x);
-			}
-			System.out.println("----------Wishlisted By----------");
-			for (UserTO x : mvS.getWishListedBy(mto.getId())) {
-				System.out.println(x);
-			}
-		}
+//		
+//		List<MovieTO> movies = uS.getWishlist(usr1.getId());
+//		
+//		for (MovieTO mto : movies) {
+//			System.out.println("\n\n\n\n------------------------------------------------------");
+//			System.out.println(mto);
+//			System.out.println("----------Actors----------");
+//			for (ActorTO x : mvS.getActors(mto.getId())) {
+//				System.out.println(x);
+//			}
+//			System.out.println("----------Genres----------");
+//			for (GenreTO x : mvS.getGenres(mto.getId())) {
+//				System.out.println(x);
+//			}
+//			System.out.println("----------Writers----------");
+//			for (WriterTO x : mvS.getWriters(mto.getId())) {
+//				System.out.println(x);
+//			}
+//			System.out.println("----------Languages----------");
+//			for (LanguageTO x : mvS.getLanguages(mto.getId())) {
+//				System.out.println(x);
+//			}
+//			System.out.println("----------Reviews----------");
+//			for (MovieReviewTO x : mvS.getReviews(mto.getId())) {
+//				System.out.println(x);
+//			}
+//			System.out.println("----------Awards----------");
+//			for (AwardTO x : mvS.getAwards(mto.getId())) {
+//				System.out.println(x);
+//			}
+//			System.out.println("----------Wishlisted By----------");
+//			for (UserTO x : mvS.getWishListedBy(mto.getId())) {
+//				System.out.println(x);
+//			}
+//		}
 		
 	}
 }

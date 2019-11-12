@@ -1,0 +1,70 @@
+<!DOCTYPE>
+<html xmlns:th="https://www.thymeleaf.org">
+
+
+
+<!-- userprofile14:04-->
+
+<head>
+  <!-- Basic need -->
+  <title>Movies DB</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="keywords" content="">
+  <meta name="author" content="">
+  <link rel="profile" th:href="@{/#}">
+
+  <!--Google Font-->
+  <link rel="stylesheet" type="text/css"
+    th:href="@{http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600}" />
+  <!-- Mobile specific meta -->
+  <meta name=viewport content="width=device-width, initial-scale=1">
+  <meta name="format-detection" content="telephone-no">
+
+  <!-- CSS files -->
+  <meta name="author" content="Jayvir Rathi">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/plugins.css}">
+  <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+  <h1>Result</h1>
+  <!--<div th:if="${not #lists.isEmpty(users)}">  -->
+  <table>
+
+
+    <tr>
+
+
+      <th>NAME</th>
+      <th>RUNTIME</th>
+      <th>RELEASE DATE</th>
+      <th>CENSOR RATING</th>
+      <th>BUDGET</th>
+      <th>BOXOFFICE</th>
+      <th>STORY</th>
+
+
+    </tr>
+
+
+    <td th:text="${movie.name}">city</td>
+    <td th:text="${movie.runTime}">country</td>
+    <td th:text="${movie.releaseDate}">dob</td>
+    <td th:text="${movie.censorRating}">email</td>
+    <td th:text="${movie.budget}">fname</td>
+    <td th:text="${movie.boxOffice}">lname</td>
+    <td th:text="${movie.story}">phone</td>
+
+
+    </tr>
+  </table>
+
+
+</body>
+
+<!-- userprofile14:04-->
+
+</html>

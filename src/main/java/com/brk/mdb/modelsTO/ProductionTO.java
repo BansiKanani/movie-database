@@ -15,6 +15,10 @@ public class ProductionTO {
 		this.name = p.getName();
 	}
 
+	public ProductionTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "ProductionTO [id=" + id + ", name=" + name + "]";

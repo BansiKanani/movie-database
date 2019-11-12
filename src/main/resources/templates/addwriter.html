@@ -1,0 +1,20 @@
+<!DOCTYPE HTML>
+<html xmlns:th="http://www.thymeleaf.org">
+
+<head>
+    <title>Add Writer </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8" />
+</head>
+
+<body>
+    <h1>Add Writer Details</h1>
+    <form action="#" th:action="@{/addwriter}" th:object="${writer}" method="post">
+        Writer Name: <input type="text" th:field="*{name}" />
+        <p><input type="submit" value="Submit" />
+
+            <input type="reset" value="Reset" />
+        </p>
+    </form>
+</body>
+
+</html>

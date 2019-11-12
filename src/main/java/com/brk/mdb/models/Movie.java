@@ -92,4 +92,8 @@ public class Movie {
 		this.movieReview = new ArrayList<>();
 		this.wishlistedBy = new ArrayList<>();
 	}
+
+	public Movie() {
+		super();
+	}
 }

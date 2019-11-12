@@ -40,4 +40,9 @@ public class UserTO {
 				+ country + "]";
 	}
 
+	public UserTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
+
 }

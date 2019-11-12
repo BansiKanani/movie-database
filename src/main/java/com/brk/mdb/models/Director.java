@@ -29,4 +29,8 @@ public class Director {
 		this.name = name;
 		this.movies = new ArrayList<>();
 	}
+
+	public Director() {
+		super();
+	}
 }

@@ -22,11 +22,15 @@ public class Award {
 
 	private String name;
 
-	@OneToMany(mappedBy = "award", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "award", cascade = CascadeType.ALL) 
 	private List<MovieAward> movieAwards;
 
 	public Award(String name) {
 		this.name = name;
 		this.movieAwards = new ArrayList<>();
+	}
+
+	public Award() {
+		super();
 	}
 }

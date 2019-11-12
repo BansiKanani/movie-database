@@ -15,6 +15,10 @@ public class WriterTO {
 		this.name = w.getName();
 	}
 
+	public WriterTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "WriterTO [id=" + id + ", name=" + name + "]";
