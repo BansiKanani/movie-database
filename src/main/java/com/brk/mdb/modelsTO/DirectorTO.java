@@ -15,6 +15,10 @@ public class DirectorTO {
 		this.name = d.getName();
 	}
 
+	public DirectorTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "DirectorTO [id=" + id + ", name=" + name + "]";

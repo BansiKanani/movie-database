@@ -1,0 +1,53 @@
+
+/* ==========================================================================
+   #BACKGROUND
+   ========================================================================== */
+.bg-bluered {
+  background: #2c6ed5;
+}
+#topbar-filter1s
+{
+	display: -webkit-flex;
+  display: -moz-box;
+  display: -ms-flexbox;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 7px !important;
+  border-top: 1px solid #405266;
+  border-bottom: 1px solid #405266;
+}
+#topbar-filter2s
+{
+	margin-bottom: 30px;
+}
+.padding_1s
+{
+    padding:7px !important;
+}
+.mar_1s
+{
+	margin-right:3px;
+	margin-left:3px;
+}
+
+
+
+input[type="text"], textarea {
+	
+    background-color :#020D18; 
+    color:white !important;
+  }
+.submit_s1
+{
+	    font-family: 'Dosis', sans-serif;
+    font-size: 14px;
+    color: #ffffff;
+    font-weight: bold;
+    text-transform: uppercase;
+    background: #dd003f;
+    padding:4px;
+    margin-right:2px;
+    margin-left:2px;
+    width: 50%;
+}

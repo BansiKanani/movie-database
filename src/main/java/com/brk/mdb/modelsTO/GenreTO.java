@@ -15,6 +15,10 @@ public class GenreTO {
 		this.name = g.getName();
 	}
 
+	public GenreTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "GenreTO [id=" + id + ", name=" + name + "]";

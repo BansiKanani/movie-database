@@ -27,6 +27,10 @@ public class ActorTO {
 		this.dob = a.getDob();
 	}
 
+	public ActorTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "ActorTO [id=" + id + ", name=" + name + ", height=" + height + ", city=" + city + ", state=" + state

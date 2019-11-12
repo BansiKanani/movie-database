@@ -15,6 +15,10 @@ public class AwardTO {
 		this.name = a.getName();
 	}
 
+	public AwardTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "AwardTO [id=" + id + ", name=" + name + "]";
