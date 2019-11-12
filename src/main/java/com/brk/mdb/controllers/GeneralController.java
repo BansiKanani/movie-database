@@ -65,10 +65,11 @@ public class GeneralController {
 		
 		model.addAttribute("users",userService.getAll());
 
-//		GeneralTests.printAllMovies(movieService.getByName("Titanic"));
-//
-//		GeneralTests.printAllMovies(movieService.getLengthInBetween(130, 170));
-
+		
+		
+		
+		
+		
 		return "index";
 	}
 }
