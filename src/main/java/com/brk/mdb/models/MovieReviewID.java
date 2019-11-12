@@ -12,7 +12,9 @@ public class MovieReviewID implements Serializable {
 	private Movie movie;
 	private User user;
 
-	public MovieReviewID() {}
+	public MovieReviewID() {
+		super();
+	}
 	
 	public MovieReviewID(Movie movie, User user) {
 		this.movie = movie;

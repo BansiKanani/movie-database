@@ -12,8 +12,10 @@ public class MovieAwardID implements Serializable {
 	private Movie movie;
 	private Award award;
 
-	public MovieAwardID() {}
-	
+	public MovieAwardID() {
+		super();
+	}
+
 	public MovieAwardID(Movie movie, Award award) {
 		this.movie = movie;
 		this.award = award;
