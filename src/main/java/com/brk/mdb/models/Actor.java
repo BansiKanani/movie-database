@@ -4,7 +4,9 @@ import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
+import javax.persistence.CascadeType;
 import javax.persistence.Entity;
+import javax.persistence.FetchType;
 import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
@@ -33,7 +35,7 @@ public class Actor {
 	@Temporal(TemporalType.DATE)
 	private Date dob;
 	
-	@ManyToMany(mappedBy = "actors")
+	@ManyToMany(mappedBy = "actors", cascade = CascadeType.ALL, fetch = FetchType.LAZY)
 	private List<Movie> movies;
 
 	public Actor(String name, int height, String city, String state, String country, Date dob) {

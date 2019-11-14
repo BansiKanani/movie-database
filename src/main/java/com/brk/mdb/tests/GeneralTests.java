@@ -44,69 +44,7 @@ public class GeneralTests {
 		Date dt9 = new SimpleDateFormat("yyyy/MM/dd").parse("2000/5/12");
 		Date dt10 = new SimpleDateFormat("yyyy/MM/dd").parse("2010/2/16");
 
-		
-//		 add users
-		UserTO usr1 = uS.insertOne("Savan", "Hapani", "sh@mail.com", 1231231231L, dt1, "Ahmedabad", "Gujarat", "India");
-		UserTO usr2 = uS.insertOne("Taher", "Mandapvala", "sh@mail.com", 6789067890L, dt2, "Bharuch", "Gujarat",
-				"India");
-		UserTO usr3 = uS.insertOne("Parth", "Mangukiya", "pm@mail.com", 1234512345L, dt3, "Surat", "Gujarat", "India");
-		UserTO usr4 = uS.insertOne("Keval", "Mehta", "km@mail.com", 9876543210L, dt4, "Rajkot", "Gujarat", "India");
-		UserTO usr5 = uS.insertOne("Riya", "Sharma", "rs@mail.com", 5675675675L, dt5, "Surat", "Gujarat", "India");
-		
-
-		// feedbacks
-		FeedbackTO fb1 = fS.insertOne(usr1.getId(), "Very useful system.");
-		FeedbackTO fb2 = fS.insertOne(usr2.getId(), "I found a bug.");
-		FeedbackTO fb3 = fS.insertOne(usr3.getId(), "Amazing system.");
-
-		ActorTO act1 = actS.insertOne("Leonardo DiCaprio", dt1, 183, "Jamjodhpur", "Gujarat", "India");
-		ActorTO act2 = actS.insertOne("Tom Hanks", dt2, 172, "Diu", "Gujarat", "India");
-		ActorTO act3 = actS.insertOne("Brad Pitt", dt3, 170, "Bhuj", "Gujarat", "India");
-		ActorTO act4 = actS.insertOne("Johnny Depp", dt4, 194, "Ahmedabad", "Gujarat", "India");
-		ActorTO act5 = actS.insertOne("Tom Cruise", dt5, 169, "Surat", "Gujarat", "India");
-		ActorTO act6 = actS.insertOne("Dwayne Johnson", dt6, 174, "Jamnagar", "Gujarat", "India");
-		ActorTO act7 = actS.insertOne("Jennifer Lawrence", dt7, 165, "Morbi", "Gujarat", "India");
-		ActorTO act8 = actS.insertOne("Angelina Jolie", dt8, 180, "Ghatila", "Gujarat", "India");
-		ActorTO act9 = actS.insertOne("Scarlett Johansson", dt9, 176, "Lalpar", "Gujarat", "India");
-		ActorTO act10 = actS.insertOne("Bradley Cooper", dt10, 177, "Jodiya", "Gujarat", "India");
-
-		LanguageTO lang1 = lS.insertOne("ENG");
-		LanguageTO lang2 = lS.insertOne("GUJ");
-		LanguageTO lang3 = lS.insertOne("RUS");
-		LanguageTO lang4 = lS.insertOne("JAP");
-
-		GenreTO gen1 = gS.insertOne("Sci-Fi");
-		GenreTO gen2 = gS.insertOne("Horror");
-		GenreTO gen3 = gS.insertOne("Thriller");
-		GenreTO gen4 = gS.insertOne("Comedy");
-		GenreTO gen5 = gS.insertOne("Mystery");
-
-		AwardTO awd1 = awdS.insertOne("Oscar");
-		AwardTO awd2 = awdS.insertOne("Film of the Year");
-		AwardTO awd3 = awdS.insertOne("Palme d’or");
-		AwardTO awd4 = awdS.insertOne("Bafta");
-
-		DirectorTO dir1 = dS.insertOne("Steven Spielberg");
-		DirectorTO dir2 = dS.insertOne("James Cameron");
-		DirectorTO dir3 = dS.insertOne("Martin Scorsese");
-		DirectorTO dir4 = dS.insertOne("Stanley Kubrick");
-		DirectorTO dir5 = dS.insertOne("Quentin Tarantino");
-
-		WriterTO wr1 = wS.insertOne("Woody Allen");
-		WriterTO wr2 = wS.insertOne("Charlie Kaufman");
-		WriterTO wr3 = wS.insertOne("Stephen King");
-		WriterTO wr4 = wS.insertOne("Christopher Nolan");
-		WriterTO wr5 = wS.insertOne("Robert Townew");
-
-		ProductionTO prod1 = pS.insertOne("20th Century Fox");
-		ProductionTO prod2 = pS.insertOne("Paramount Pictures");
-		ProductionTO prod3 = pS.insertOne("Universal Pictures");
-		ProductionTO prod4 = pS.insertOne("Columbia Pictures");
-		ProductionTO prod5 = pS.insertOne("The Walt Disney Company");
-		ProductionTO prod6 = pS.insertOne("Sony Pictures");
-		ProductionTO prod7 = pS.insertOne("DreamWorks Pictures");
-		ProductionTO prod8 = pS.insertOne("Pixar");
-
+		// movie insert
 		MovieTO mov1 = mvS.insertOne("The Titanic", 128, 18200000000L, 2468300000000L, "PG-13", "story 1", dt1);
 		MovieTO mov2 = mvS.insertOne("Matrix", 115, 1820000000L, 24683000000L, "NC-17", "story 2", dt2);
 		MovieTO mov3 = mvS.insertOne("Welcome to Jungle", 132, 175000000L, 246830000000L, "R", "story 3", dt3);
@@ -118,7 +56,51 @@ public class GeneralTests {
 		MovieTO mov9 = mvS.insertOne("Autopsy of Jane Doe", 172, 182000000L, 2468300000000L, "NC-17", "story 9", dt9);
 		MovieTO mov10 = mvS.insertOne("High School", 150, 1820000L, 246830000L, "PG-13", "story 10", dt10);
 
+		// add users
+		UserTO usr1 = uS.insertOne("Savan", "Hapani", "sh@mail.com", 1231231231L, dt1, "Ahmedabad", "Gujarat", "India");
+		UserTO usr2 = uS.insertOne("Taher", "Mandapvala", "sh@mail.com", 6789067890L, dt2, "Bharuch", "Gujarat",
+				"India");
+		UserTO usr3 = uS.insertOne("Parth", "Mangukiya", "pm@mail.com", 1234512345L, dt3, "Surat", "Gujarat", "India");
+		UserTO usr4 = uS.insertOne("Keval", "Mehta", "km@mail.com", 9876543210L, dt4, "Rajkot", "Gujarat", "India");
+		UserTO usr5 = uS.insertOne("Riya", "Sharma", "rs@mail.com", 5675675675L, dt5, "Surat", "Gujarat", "India");
+
+		// add reviews
+		mvS.addReview(mov1.getId(), usr1.getId(), 8, "Amazing movie");
+		mvS.addReview(mov1.getId(), usr2.getId(), 4, "not good");
+		mvS.addReview(mov1.getId(), usr3.getId(), 1, "time waste");
+		mvS.addReview(mov1.getId(), usr4.getId(), 7, "complicated to understand");
+		mvS.addReview(mov2.getId(), usr1.getId(), 10, "very emotional");
+		mvS.addReview(mov2.getId(), usr2.getId(), 6, "light weight");
+		mvS.addReview(mov3.getId(), usr1.getId(), 1, "time waste");
+		mvS.addReview(mov3.getId(), usr5.getId(), 7, "complicated to understand");
+		mvS.addReview(mov3.getId(), usr4.getId(), 8, "nice my kid liked it");
+		mvS.addReview(mov4.getId(), usr5.getId(), 0, "it's total waste of money and time");
+		mvS.addReview(mov5.getId(), usr1.getId(), 3, "complicated to understand");
+		mvS.addReview(mov5.getId(), usr2.getId(), 8, "nice to watch with friends");
+
+		// feedbacks
+		FeedbackTO fb1 = fS.insertOne(usr1.getId(), "Very useful system.");
+		FeedbackTO fb2 = fS.insertOne(usr2.getId(), "I found a bug.");
+		FeedbackTO fb3 = fS.insertOne(usr3.getId(), "Amazing system.");
+
+		// add wish list
+		uS.addToWishlist(usr1.getId(), mov1.getId());
+		uS.addToWishlist(usr1.getId(), mov2.getId());
+		uS.addToWishlist(usr1.getId(), mov3.getId());
+		uS.addToWishlist(usr2.getId(), mov1.getId());
+
 		// add actors
+		ActorTO act1 = actS.insertOne("Leonardo DiCaprio", dt1, 183, "Jamjodhpur", "Gujarat", "India");
+		ActorTO act2 = actS.insertOne("Tom Hanks", dt2, 172, "Diu", "Gujarat", "India");
+		ActorTO act3 = actS.insertOne("Brad Pitt", dt3, 170, "Bhuj", "Gujarat", "India");
+		ActorTO act4 = actS.insertOne("Johnny Depp", dt4, 194, "Ahmedabad", "Gujarat", "India");
+		ActorTO act5 = actS.insertOne("Tom Cruise", dt5, 169, "Surat", "Gujarat", "India");
+		ActorTO act6 = actS.insertOne("Dwayne Johnson", dt6, 174, "Jamnagar", "Gujarat", "India");
+		ActorTO act7 = actS.insertOne("Jennifer Lawrence", dt7, 165, "Morbi", "Gujarat", "India");
+		ActorTO act8 = actS.insertOne("Angelina Jolie", dt8, 180, "Ghatila", "Gujarat", "India");
+		ActorTO act9 = actS.insertOne("Scarlett Johansson", dt9, 176, "Lalpar", "Gujarat", "India");
+		ActorTO act10 = actS.insertOne("Bradley Cooper", dt10, 177, "Jodiya", "Gujarat", "India");
+
 		mvS.addActor(mov1.getId(), act1.getId());
 		mvS.addActor(mov1.getId(), act2.getId());
 		mvS.addActor(mov1.getId(), act3.getId());
@@ -140,6 +122,12 @@ public class GeneralTests {
 		mvS.addActor(mov10.getId(), act3.getId());
 
 		// add director
+		DirectorTO dir1 = dS.insertOne("Steven Spielberg");
+		DirectorTO dir2 = dS.insertOne("James Cameron");
+		DirectorTO dir3 = dS.insertOne("Martin Scorsese");
+		DirectorTO dir4 = dS.insertOne("Stanley Kubrick");
+		DirectorTO dir5 = dS.insertOne("Quentin Tarantino");
+
 		mvS.setDirector(mov1.getId(), dir1.getId());
 		mvS.setDirector(mov2.getId(), dir2.getId());
 		mvS.setDirector(mov3.getId(), dir3.getId());
@@ -150,14 +138,17 @@ public class GeneralTests {
 		mvS.setDirector(mov8.getId(), dir2.getId());
 		mvS.setDirector(mov9.getId(), dir2.getId());
 		mvS.setDirector(mov10.getId(), dir3.getId());
-		
+
 		// add writer
+		WriterTO wr1 = wS.insertOne("Woody Allen");
+		WriterTO wr2 = wS.insertOne("Charlie Kaufman");
+		WriterTO wr3 = wS.insertOne("Stephen King");
+		WriterTO wr4 = wS.insertOne("Christopher Nolan");
+		WriterTO wr5 = wS.insertOne("Robert Townew");
+
 		mvS.addWriter(mov1.getId(), wr1.getId());
-		mvS.addWriter(mov1.getId(), wr2.getId());
 		mvS.addWriter(mov2.getId(), wr1.getId());
-		mvS.addWriter(mov3.getId(), wr2.getId());
 		mvS.addWriter(mov3.getId(), wr3.getId());
-		mvS.addWriter(mov3.getId(), wr5.getId());
 		mvS.addWriter(mov4.getId(), wr5.getId());
 		mvS.addWriter(mov5.getId(), wr3.getId());
 		mvS.addWriter(mov6.getId(), wr3.getId());
@@ -165,8 +156,14 @@ public class GeneralTests {
 		mvS.addWriter(mov8.getId(), wr4.getId());
 		mvS.addWriter(mov9.getId(), wr5.getId());
 		mvS.addWriter(mov10.getId(), wr4.getId());
-		
+
 		// add genre
+		GenreTO gen1 = gS.insertOne("Sci-Fi");
+		GenreTO gen2 = gS.insertOne("Horror");
+		GenreTO gen3 = gS.insertOne("Thriller");
+		GenreTO gen4 = gS.insertOne("Comedy");
+		GenreTO gen5 = gS.insertOne("Mystery");
+
 		mvS.addGenre(mov1.getId(), gen1.getId());
 		mvS.addGenre(mov1.getId(), gen2.getId());
 		mvS.addGenre(mov2.getId(), gen3.getId());
@@ -180,9 +177,13 @@ public class GeneralTests {
 		mvS.addGenre(mov8.getId(), gen4.getId());
 		mvS.addGenre(mov9.getId(), gen5.getId());
 		mvS.addGenre(mov10.getId(), gen1.getId());
-		
-		
+
 		// add language
+		LanguageTO lang1 = lS.insertOne("ENG");
+		LanguageTO lang2 = lS.insertOne("GUJ");
+		LanguageTO lang3 = lS.insertOne("RUS");
+		LanguageTO lang4 = lS.insertOne("JAP");
+
 		mvS.addLanguage(mov1.getId(), lang1.getId());
 		mvS.addLanguage(mov1.getId(), lang2.getId());
 		mvS.addLanguage(mov1.getId(), lang3.getId());
@@ -196,16 +197,28 @@ public class GeneralTests {
 		mvS.addLanguage(mov8.getId(), lang1.getId());
 		mvS.addLanguage(mov9.getId(), lang3.getId());
 		mvS.addLanguage(mov10.getId(), lang2.getId());
-		
-		
+
 		// add awards
+		AwardTO awd1 = awdS.insertOne("Oscar");
+		AwardTO awd2 = awdS.insertOne("Film of the Year");
+		AwardTO awd3 = awdS.insertOne("Palme d’or");
+		AwardTO awd4 = awdS.insertOne("Bafta");
+
 		mvS.addAward(mov1.getId(), awd1.getId(), dt1);
 		mvS.addAward(mov1.getId(), awd2.getId(), dt2);
 		mvS.addAward(mov2.getId(), awd3.getId(), dt3);
 		mvS.addAward(mov3.getId(), awd4.getId(), dt4);
-		
-		
-		// set production		
+
+		// set production
+		ProductionTO prod1 = pS.insertOne("20th Century Fox");
+		ProductionTO prod2 = pS.insertOne("Paramount Pictures");
+		ProductionTO prod3 = pS.insertOne("Universal Pictures");
+		ProductionTO prod4 = pS.insertOne("Columbia Pictures");
+		ProductionTO prod5 = pS.insertOne("The Walt Disney Company");
+		ProductionTO prod6 = pS.insertOne("Sony Pictures");
+		ProductionTO prod7 = pS.insertOne("DreamWorks Pictures");
+		ProductionTO prod8 = pS.insertOne("Pixar");
+
 		mvS.setProduction(mov1.getId(), prod1.getId());
 		mvS.setProduction(mov2.getId(), prod1.getId());
 		mvS.setProduction(mov3.getId(), prod1.getId());
@@ -216,35 +229,13 @@ public class GeneralTests {
 		mvS.setProduction(mov8.getId(), prod1.getId());
 		mvS.setProduction(mov9.getId(), prod2.getId());
 		mvS.setProduction(mov10.getId(), prod3.getId());
-		
-		// add reviews
-		mvS.addReview(mov1.getId(), usr1.getId(), 8, "Amazing movie");
-		mvS.addReview(mov1.getId(), usr2.getId(), 4, "not good");
-		mvS.addReview(mov1.getId(), usr3.getId(), 1, "time waste");
-		mvS.addReview(mov1.getId(), usr4.getId(), 7, "complicated to understand");
-		mvS.addReview(mov2.getId(), usr1.getId(), 10, "very emotional");
-		mvS.addReview(mov2.getId(), usr2.getId(), 6, "light weight");
-		mvS.addReview(mov3.getId(), usr1.getId(), 1, "time waste");
-		mvS.addReview(mov3.getId(), usr5.getId(), 7, "complicated to understand");
-		mvS.addReview(mov3.getId(), usr4.getId(), 8, "nice my kid liked it");		
-		mvS.addReview(mov4.getId(), usr5.getId(), 0, "it's total waste of money and time");
-		mvS.addReview(mov5.getId(), usr1.getId(), 3, "complicated to understand");
-		mvS.addReview(mov5.getId(), usr2.getId(), 8, "nice to watch with friends");
-		
-		// add wish list
-		uS.addToWishlist(usr1.getId(), mov1.getId());
-		uS.addToWishlist(usr1.getId(), mov2.getId());
-		uS.addToWishlist(usr1.getId(), mov3.getId());
-		uS.addToWishlist(usr2.getId(), mov1.getId());
-		
-		List<MovieTO> mto = uS.getWishlist(usr1.getId());
-		
-		for (MovieTO movieTO : mto) {
-			System.out.println(movieTO);
-		}
-		
-		
-		
+
+//		List<ActorTO> mto = mvS.getActors(mov1.getId());
+//
+//		for (ActorTO aTO : mto) {
+//			System.out.println(aTO);
+//		}
+
 		// print all things
 //		
 //		List<MovieTO> movies = uS.getWishlist(usr1.getId());
@@ -281,6 +272,6 @@ public class GeneralTests {
 //				System.out.println(x);
 //			}
 //		}
-		
+
 	}
 }
