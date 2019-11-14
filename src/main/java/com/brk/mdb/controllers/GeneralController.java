@@ -330,6 +330,11 @@ public class GeneralController {
 		return "insertdirector";
 	}
 
+	@GetMapping("/addmaindetails")
+	public String addpages(Model model) {
+//		model.addAttribute("feedback", new FeedbackTO());
+		return "addmaindetails";
+	}
 //	@GetMapping("/adduser")
 //	public String UserForm(Model model) {
 //		model.addAttribute("user", new UserTO());
