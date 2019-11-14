@@ -113,6 +113,8 @@ public class MovieServiceImpl implements MovieService {
 		MovieAward ma = new MovieAward(m, a, d);
 		a.getMovieAwards().add(ma);
 		m.getMovieAwards().add(ma);
+		movieRepo.flush();
+		awardRepo.flush();
 		return true;
 
 	}
@@ -124,6 +126,8 @@ public class MovieServiceImpl implements MovieService {
 		MovieAward ma = movieAwardRepo.findByMovieAndAward(m, a);
 		m.getMovieAwards().remove(ma);
 		a.getMovieAwards().remove(ma);
+		movieRepo.flush();
+		awardRepo.flush();
 		return true;
 
 	}
@@ -141,6 +145,8 @@ public class MovieServiceImpl implements MovieService {
 		MovieReview movRev = new MovieReview(m, u, rating, comment);
 		m.getMovieReview().add(movRev);
 		u.getMovieReviews().add(movRev);
+		movieRepo.flush();
+		userRepo.flush();
 		return true;
 
 	}
@@ -152,6 +158,8 @@ public class MovieServiceImpl implements MovieService {
 		MovieReview movRev = movieReviewRepo.findByMovieAndUser(m, u);
 		m.getMovieReview().remove(movRev);
 		u.getMovieReviews().remove(movRev);
+		movieRepo.flush();
+		userRepo.flush();
 		return true;
 
 	}
@@ -199,6 +207,8 @@ public class MovieServiceImpl implements MovieService {
 		Actor a = actorRepo.findById(actorId).orElseThrow();
 		m.getActors().add(a);
 		a.getMovies().add(m);
+		movieRepo.flush();
+		actorRepo.flush();
 		return true;
 	}
 
@@ -208,6 +218,8 @@ public class MovieServiceImpl implements MovieService {
 		Actor a = actorRepo.findById(actorId).orElseThrow();
 		m.getActors().remove(a);
 		a.getMovies().remove(m);
+		movieRepo.flush();
+		actorRepo.flush();
 		return true;
 
 	}
@@ -224,6 +236,8 @@ public class MovieServiceImpl implements MovieService {
 		Language l = languageRepo.findById(languageId).orElseThrow();
 		m.getLanguages().add(l);
 		l.getMovies().add(m);
+		languageRepo.flush();
+		movieRepo.flush();
 		return true;
 
 	}
@@ -234,6 +248,8 @@ public class MovieServiceImpl implements MovieService {
 		Language l = languageRepo.findById(languageId).orElseThrow();
 		m.getLanguages().remove(l);
 		l.getMovies().remove(m);
+		languageRepo.flush();
+		movieRepo.flush();
 		return true;
 	}
 
@@ -249,6 +265,8 @@ public class MovieServiceImpl implements MovieService {
 		Writer w = writerRepo.findById(writerId).orElseThrow();
 		m.getWriters().add(w);
 		w.getMovies().add(m);
+		writerRepo.flush();
+		movieRepo.flush();
 		return true;
 	}
 
@@ -258,6 +276,8 @@ public class MovieServiceImpl implements MovieService {
 		Writer w = writerRepo.findById(writerId).orElseThrow();
 		m.getWriters().remove(w);
 		w.getMovies().remove(m);
+		writerRepo.flush();
+		movieRepo.flush();
 		return true;
 	}
 
@@ -285,6 +305,8 @@ public class MovieServiceImpl implements MovieService {
 		Genre g = genreRepo.findById(genreId).orElseThrow();
 		m.getGenres().add(g);
 		g.getMovies().add(m);
+		genreRepo.flush();
+		movieRepo.flush();
 		return true;
 	}
 
@@ -294,6 +316,8 @@ public class MovieServiceImpl implements MovieService {
 		Genre g = genreRepo.findById(genreId).orElseThrow();
 		m.getGenres().remove(g);
 		g.getMovies().remove(m);
+		genreRepo.flush();
+		movieRepo.flush();
 		return true;
 	}
 
@@ -308,6 +332,8 @@ public class MovieServiceImpl implements MovieService {
 		Director d = directorRepo.findById(directorId).orElseThrow();
 		m.setDirector(d);
 		d.getMovies().add(m);
+		directorRepo.flush();
+		movieRepo.flush();
 		return true;
 	}
 
@@ -322,6 +348,8 @@ public class MovieServiceImpl implements MovieService {
 		Production p = productionRepo.findById(productionId).orElseThrow();
 		m.setProduction(p);
 		p.getMovies().add(m);
+		productionRepo.flush();
+		movieRepo.flush();
 		return true;
 	}
 

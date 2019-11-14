@@ -70,110 +70,73 @@ public class GeneralController {
 
 	@Autowired
 	private WriterService writerService;
+
 	@GetMapping("/404")
 	public String say404(Model model) {
-
-		
-
 		return "404";
-
 	}
 
 	@GetMapping("/users")
 	public String sayusers(Model model) {
-
 		model.addAttribute("users", userService.getAll());
-
 		return "users";
-
 	}
 
 	@GetMapping("/user")
 	public String sayuserprofile(Model model, HttpServletRequest req) {
 		long uid = Long.parseLong(req.getParameter("id"));
 		model.addAttribute("user", userService.getById(uid));
-		//
-		// List<MovieTO> mto = userService.getWishlist(uid);
-		//
-		// for (MovieTO movieTO : mto) {
-		// System.out.println(movieTO);
-		// }
-		// model.addAttribute("wishlistArray", userService.getWishlist(uid));
-
+		
+		List<MovieTO> mto = userService.getWishlist(uid);
+		
+		for (MovieTO movieTO : mto) {
+			System.out.println(movieTO);
+		}
+//		model.addAttribute("wishlistArray", userService.getWishlist(uid));
+		
+		
+		
 		return "userprofile";
 		// return "usersprof";
 	}
 
 	@GetMapping("/actors")
 	public String sayactor(Model model) {
-
 		model.addAttribute("actors", actorService.getAll());
-
 		return "actors";
 
 	}
 
 	@GetMapping("/actor")
 	public String sayactorprofile(Model model, HttpServletRequest req) {
-
 		model.addAttribute("actor", actorService.getById(Long.parseLong(req.getParameter("id"))));
-
-		// return "actorprofile";
 		return "actorprofilesingle";
 	}
 
 	@GetMapping("/movies")
 	public String saymovie(Model model) {
-
 		model.addAttribute("movies", movieService.getAll());
-
 		return "movies";
 
 	}
 
 	@GetMapping("/movie")
 	public String saymoviesingle(Model model, HttpServletRequest req) {
-
 		model.addAttribute("movie", movieService.getById(Long.parseLong(req.getParameter("id"))));
-
-		// return "movieprof";
 		return "moviesingle";
 	}
 
 	@GetMapping("/explore")
 	public String sayexplore() {
-
 		return "explore";
-	}
-
-	@GetMapping("/wishlist")
-	public String saywishlistmovie(Model model, HttpServletRequest req) {
-
-		// model.addAttribute("user",
-		// userService.getWishlist(Long.parseLong(req.getParameter("id"))));
-
-		// return "wishlistprof";
-		// return "userfavoritelist";
-		// List<MovieTO> uto =
-		// userService.getWishlist(Long.parseLong(req.getParameter("id")));
-
-		List<MovieTO> uto = userService.getWishlist(Long.parseLong(req.getParameter("id")));
-		// for (MovieTO movies : uto) {
-		// System.out.println(movies);
-		// }
-
-		model.addAttribute("movies", uto);
-		return "wishlistprof";
-
 	}
 
 	@GetMapping("/index")
 	public String indexPage(Model model) {
-
 		// for testing
 		try {
 			GeneralTests.bulkInsert(userService, movieService, actorService, awardService, directorService,
-					feedbackService, genreService, languageService, productionService, writerService);
+					feedbackService, genreService, languageService, productionService, writerService);			
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}

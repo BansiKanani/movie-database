@@ -45,6 +45,8 @@ public class UserServiceImpl implements UserService {
 		MovieReview mr = new MovieReview(m, u, rating, comment);
 		m.getMovieReview().add(mr);
 		u.getMovieReviews().add(mr);
+		movieRepo.flush();
+		userRepo.flush();
 		return true;
 	}
 
@@ -55,6 +57,8 @@ public class UserServiceImpl implements UserService {
 		MovieReview mr = movieReviewRepo.findByMovieAndUser(m, u);
 		m.getMovieReview().remove(mr);
 		u.getMovieReviews().remove(mr);
+		movieRepo.flush();
+		userRepo.flush();
 		return true;
 	}
 
@@ -108,6 +112,8 @@ public class UserServiceImpl implements UserService {
 		User u = userRepo.findById(userId).orElseThrow();
 		m.getWishlistedBy().add(u);
 		u.getWishlist().add(m);
+		movieRepo.flush();
+		userRepo.flush();
 		return true;
 	}
 
@@ -117,6 +123,8 @@ public class UserServiceImpl implements UserService {
 		User u = userRepo.findById(userId).orElseThrow();
 		m.getWishlistedBy().remove(u);
 		u.getWishlist().remove(m);
+		movieRepo.flush();
+		userRepo.flush();
 		return true;
 	}
 
