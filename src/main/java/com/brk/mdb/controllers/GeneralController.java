@@ -286,6 +286,12 @@ public class GeneralController {
 		}
 
 	}
+	
+	@GetMapping("/insertdirector")
+	public String insertDirector(Model model) {
+		//model.addAttribute("writer", new WriterTO());
+		return "insertdirector";
+	}
 
 //	@GetMapping("/adduser")
 //	public String UserForm(Model model) {
