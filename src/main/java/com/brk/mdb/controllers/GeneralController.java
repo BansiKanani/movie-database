@@ -101,17 +101,17 @@ public class GeneralController {
 	@GetMapping("/actors")
 	public String sayactor(Model model) {
 		model.addAttribute("actors", actorService.getAll());
-//		return "actorprofile";
+		// return "actorprofile";
 		return "actors";
 
 	}
 
-	
 	@GetMapping("/actor")
 	public String sayactorprofile(Model model, HttpServletRequest req) {
 		model.addAttribute("actor", actorService.getById(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Movies_array", actorService.getMovies(Long.parseLong(req.getParameter("id"))));
 		return "actorprofilesingle";
-		//return "actorprofile";
+		// return "actorprofile";
 	}
 
 	@GetMapping("/movies")
@@ -124,10 +124,10 @@ public class GeneralController {
 	@GetMapping("/movie")
 	public String saymoviesingle(Model model, HttpServletRequest req) {
 		model.addAttribute("movie", movieService.getById(Long.parseLong(req.getParameter("id"))));
-		model.addAttribute("Actor_array",movieService.getActors(Long.parseLong(req.getParameter("id"))));
-		model.addAttribute("Director_array",movieService.getDirector(Long.parseLong(req.getParameter("id"))));
-		model.addAttribute("Writer_array",movieService.getWriters(Long.parseLong(req.getParameter("id"))));
-		model.addAttribute("Genre_array",movieService.getGenres(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Actor_array", movieService.getActors(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Director_array", movieService.getDirector(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Writer_array", movieService.getWriters(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Genre_array", movieService.getGenres(Long.parseLong(req.getParameter("id"))));
 		return "moviesingle";
 	}
 
@@ -135,20 +135,19 @@ public class GeneralController {
 	public String sayexplore() {
 		return "explore";
 	}
-	
-	
-//	 @GetMapping("/explore")
-//	 public String sayexplore1(Model model) {
-//	  List<GenreTO> search_Genre=genreService.getAll();
-//	  List<DirectorTO>search_Director=directorService.getAll();
-//	  
-//	 
-//	  model.addAttribute("Genre_array",search_Genre);
-//	  model.addAttribute("Filter",new FilterCriteriaTO());
-//	  return "explore";
-//	  
-//	  
-//	 }
+
+	// @GetMapping("/explore")
+	// public String sayexplore1(Model model) {
+	// List<GenreTO> search_Genre=genreService.getAll();
+	// List<DirectorTO>search_Director=directorService.getAll();
+	//
+	//
+	// model.addAttribute("Genre_array",search_Genre);
+	// model.addAttribute("Filter",new FilterCriteriaTO());
+	// return "explore";
+	//
+	//
+	// }
 
 	@GetMapping("/index")
 	public String indexPage(Model model) {
@@ -315,7 +314,8 @@ public class GeneralController {
 	@PostMapping("/addmovie")
 	public String processMovie(@ModelAttribute MovieTO movieto) {
 		try {
-			movieService.insertOne(movieto.getName(),movieto.getRunTime(),movieto.getBudget(),movieto.getBoxOffice(),movieto.getCensorRating(),movieto.getStory(),movieto.getReleaseDate());
+			movieService.insertOne(movieto.getName(), movieto.getRunTime(), movieto.getBudget(), movieto.getBoxOffice(),
+					movieto.getCensorRating(), movieto.getStory(), movieto.getReleaseDate());
 			return "success";
 		} catch (Exception e) {
 			return "showmessage";

@@ -279,16 +279,16 @@
 						<div class="movie-tabs">
 							<div class="tabs">
 								<ul class="tab-links tabs-mv">
-									
+
 									<li><a th:href="@{/#filmography}">filmography</a></li>
 								</ul>
 								<div class="tab-content">
 									<div id="overviewceb" class="tab active">
 										<div class="row">
 											<div class="col-md-8 col-sm-12 col-xs-12">
-												
-												
-												
+
+
+
 												<div class="title-hd-sm">
 													<h4>filmography</h4>
 													<a th:href="@{/#}" class="time">Full Filmography<i
@@ -298,85 +298,24 @@
 												<div class="mvcast-item">
 													<div class="cast-it">
 														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film1.jpg}" alt="">
 															<div>
-																<a th:href="@{/#}">X-Men: Apocalypse </a>
-																<p class="time">Logan</p>
+																<tr th:each="movie : ${Movies_array}">
+
+																	<a th:href="@{/}">
+																		<td th:text=" ${movie.name}">Name</td>
+
+																	</a>
+
+																	<p>
+																		<td th:text=" ${movie.releaseDate}">Name</td>
+																	</p>
 															</div>
 
 														</div>
-														<p>... 2016</p>
+
+														</tr>
 													</div>
-													<div class="cast-it">
-														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film2.jpg}" alt="">
-															<div>
-																<a th:href="@{/#}">Eddie the Eagle </a>
-																<p class="time">Bronson Peary</p>
-															</div>
-														</div>
-														<p>... 2015</p>
-													</div>
-													<div class="cast-it">
-														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film3.jpg}" alt="">
-															<div>
-																<a th:href="@{/#}">Me and Earl and the Dying Girl </a>
-																<p class="time">Hugh Jackman</p>
-															</div>
-														</div>
-														<p>... 2015</p>
-													</div>
-													<div class="cast-it">
-														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film4.jpg}" alt="">
-															<div>
-																<a th:href="@{/#}">Night at the Museum 3 </a>
-																<p class="time">Blackbeard</p>
-															</div>
-														</div>
-														<p>... 2014</p>
-													</div>
-													<div class="cast-it">
-														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film5.jpg}" alt="">
-															<div>
-																<a th:href="@{/#}">X-Men: Days of Future Past </a>
-																<p class="time">Wolverine</p>
-															</div>
-														</div>
-														<p>... 2012</p>
-													</div>
-													<div class="cast-it">
-														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film6.jpg}" alt="">
-															<div>
-																<a th:href="@{/#}">The Wolverine </a>
-																<p class="time">Logan</p>
-															</div>
-														</div>
-														<p>... 2011</p>
-													</div>
-													<div class="cast-it">
-														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film7.jpg}" alt="">
-															<div>
-																<a th:href="@{/#}">Rise of the Guardians </a>
-																<p class="time">Bunny</p>
-															</div>
-														</div>
-														<p>... 2011</p>
-													</div>
-													<div class="cast-it">
-														<div class="cast-left cebleb-film">
-															<img th:src="@{/images/uploads/film8.jpg}" alt="">
-															<div>
-																<a th:href="@{/#}">The Prestige </a>
-																<p class="time">Robert Angier</p>
-															</div>
-														</div>
-														<p>... 2010</p>
-													</div>
+
 												</div>
 											</div>
 											<div class="col-md-4 col-xs-12 col-sm-12">
@@ -407,10 +346,10 @@
 													<p th:utext="${actor.height}"></p>
 												</div>
 												<div class="sb-it">
-													
-												
+
+
 												</div>
-											
+
 											</div>
 										</div>
 									</div>
@@ -422,7 +361,7 @@
 													<h2>Hugh Jackman</h2>
 												</div>
 											</div>
-											
+
 										</div>
 									</div>
 									<div id="mediaceb" class="tab">
