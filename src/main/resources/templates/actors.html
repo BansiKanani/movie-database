@@ -1,0 +1,69 @@
+<!DOCTYPE>
+<html xmlns:th="https://www.thymeleaf.org">
+
+
+
+
+<head>
+    <!-- Basic need -->
+    <title>Movies DB</title>
+    <meta charset="UTF-8">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+    <link rel="profile" th:href="@{/#}">
+
+    <!--Google Font-->
+    <link rel="stylesheet" type="text/css"
+        th:href="@{http://fonts.googleapis.com/css?family=Dosis:400,700,500|Nunito:300,400,600}" />
+    <!-- Mobile specific meta -->
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="format-detection" content="telephone-no">
+
+    <!-- CSS files -->
+    <meta name="author" content="Jayvir Rathi">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/plugins.css}">
+    <link rel="stylesheet" type="text/css" th:href="@{/css/style.css}">
+
+</head>
+
+<body>
+
+    <h1>Result</h1>
+    <!--<div th:if="${not #lists.isEmpty(users)}">  -->
+    <table>
+
+
+        <tr>
+            <th>ID</th>
+            <th>CITY</th>
+            <th>COUNTRY</th>
+            <th>DOB</th>
+            <th>Height</th>
+            <th>NAME</th>
+            <th>STATE</th>
+
+
+        </tr>
+        <tr th:each="actor : ${actors}">
+            <td><a th:href="@{/actor?id={id}(id=${actor.id})}">show
+                    details</a></td>
+            <td th:text="${actor.city}">city</td>
+            <td th:text="${actor.country}">country</td>
+            <td th:text="${actor.dob}">dob</td>
+            <td th:text="${actor.height}">height</td>
+            <td th:text="${actor.name}">name</td>
+            <td th:text="${actor.state}">state</td>
+
+
+
+
+
+        </tr>
+    </table>
+
+
+</body>
+
+
+</html>

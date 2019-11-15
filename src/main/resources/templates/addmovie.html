@@ -272,37 +272,58 @@
                 <div class="col-sm-12 col-xs-12 ">
                     <div class="searh-form">
 
-                        <form class="form-style-1" action="#" th:action="@{/adduser}" th:object="${user}" method="post">
+                        <form class="form-style-1" action="#" th:action="@{/addmovie}" th:object="${movie}"
+                            method="post">
 
 
 
                             <div class="row">
                                 <div class="col-md-12 form-it">
-                                    <label>First Name:</label>
-                                    <input type="text" th:field="*{fname}" id="fname" placeholder="First Name">
+                                    <label> Name:</label>
+                                    <input type="text" th:field="*{name}" id="name" placeholder="Name">
 
-                                    <label>Last Name:</label>
-                                    <input type="text" th:field="*{lname}" id="lname" placeholder="Last Name">
+                                    <!-- <label>release Date:</label>
+                                    <input type="date" th:field="*{releaseDate}" id="reldate"
+                                        placeholder="Release Date"> -->
 
-                                    <label>Email:</label>
+                                    <label>Run Time:</label>
 
-                                    <input type="email" th:field="*{email}" id="email" placeholder="Email">
+                                    <input type="number" th:field="*{runTime}" id="runtime" placeholder="Run Time">
 
-                                    <label>Phone Number:</label>
+                                    <label>Sensor Rating:</label>
 
-                                    <input type="tel" th:field="*{phone}" pattern="[0-9]{10}" id="phone"
-                                        placeholder="Phone Number">
+                                    <input type="text" th:field="*{censorRating}" id="censorrating"
+                                        placeholder="Censor Rating">
 
 
 
-                                    <label>City:</label>
-                                    <input type="text" th:field="*{city}" id="city" placeholder="City">
+                                    <label>Story:</label>
+                                    <input type="text" th:field="*{story}" id="story" placeholder="Story">
 
-                                    <label>State:</label>
-                                    <input type="text" th:field="*{state}" id="state" placeholder="State">
+                                    <label>Box Office:</label>
+                                    <input type="text" th:field="*{boxOffice}" id="boxoffice" placeholder="Box Office">
 
-                                    <label> Country:</label>
-                                    <input type="text" th:field="*{country}" id="Country" placeholder="Country">
+                                    <label> Budget:</label>
+                                    <input type="text" th:field="*{budget}" id="budget" placeholder="Budget">
+
+                                    <label> Director:</label>
+                                    <select>
+                                        <option value="volvo">Volvo</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+
+
+                                    <label> Production House:</label>
+                                    <select>
+                                        <option value="volvo">Volvo</option>
+                                        <option value="saab">Saab</option>
+                                        <option value="mercedes">Mercedes</option>
+                                        <option value="audi">Audi</option>
+                                    </select>
+
+
                                 </div>
 
 

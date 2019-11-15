@@ -266,6 +266,9 @@
 				<div class="col-md-8 col-sm-12 col-xs-12">
 					<div class="topbar-filter" id="topbar-filter1s">
 						<p>Found <span>1,608 movies</span> in total</p>
+
+
+
 						<label>Sort by:</label>
 						<select>
 							<option value="popularity">Popularity Descending</option>
@@ -279,6 +282,15 @@
 						<a th:href="@{/moviegrid}" class="grid"><i class="ion-grid"></i></a>
 					</div>
 					<div class="topbar-filter" id="topbar-filter1s">
+
+
+						<!-- <form action="#" th:action="@{/explore}" th:object="${Genre_array}" method="post">
+							<select>
+								<option th:each="Genre: ${Genre_array}" th:value="${Genre.id}" th:text="${Genre.name}">
+								</option>
+							</select>
+
+						</form> -->
 						<label class="mar_1s">Genre:</label>
 						<select>
 							<option value="All">All</option>

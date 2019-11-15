@@ -86,16 +86,14 @@ public class GeneralController {
 	public String sayuserprofile(Model model, HttpServletRequest req) {
 		long uid = Long.parseLong(req.getParameter("id"));
 		model.addAttribute("user", userService.getById(uid));
-		
+
 		List<MovieTO> mto = userService.getWishlist(uid);
-		
+
 		for (MovieTO movieTO : mto) {
 			System.out.println(movieTO);
 		}
-//		model.addAttribute("wishlistArray", userService.getWishlist(uid));
-		
-		
-		
+		// model.addAttribute("wishlistArray", userService.getWishlist(uid));
+
 		return "userprofile";
 		// return "usersprof";
 	}
@@ -103,14 +101,17 @@ public class GeneralController {
 	@GetMapping("/actors")
 	public String sayactor(Model model) {
 		model.addAttribute("actors", actorService.getAll());
+//		return "actorprofile";
 		return "actors";
 
 	}
 
+	
 	@GetMapping("/actor")
 	public String sayactorprofile(Model model, HttpServletRequest req) {
 		model.addAttribute("actor", actorService.getById(Long.parseLong(req.getParameter("id"))));
 		return "actorprofilesingle";
+		//return "actorprofile";
 	}
 
 	@GetMapping("/movies")
@@ -123,6 +124,10 @@ public class GeneralController {
 	@GetMapping("/movie")
 	public String saymoviesingle(Model model, HttpServletRequest req) {
 		model.addAttribute("movie", movieService.getById(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Actor_array",movieService.getActors(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Director_array",movieService.getDirector(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Writer_array",movieService.getWriters(Long.parseLong(req.getParameter("id"))));
+		model.addAttribute("Genre_array",movieService.getGenres(Long.parseLong(req.getParameter("id"))));
 		return "moviesingle";
 	}
 
@@ -130,18 +135,32 @@ public class GeneralController {
 	public String sayexplore() {
 		return "explore";
 	}
+	
+	
+//	 @GetMapping("/explore")
+//	 public String sayexplore1(Model model) {
+//	  List<GenreTO> search_Genre=genreService.getAll();
+//	  List<DirectorTO>search_Director=directorService.getAll();
+//	  
+//	 
+//	  model.addAttribute("Genre_array",search_Genre);
+//	  model.addAttribute("Filter",new FilterCriteriaTO());
+//	  return "explore";
+//	  
+//	  
+//	 }
 
 	@GetMapping("/index")
 	public String indexPage(Model model) {
 		// for testing
 		try {
 			GeneralTests.bulkInsert(userService, movieService, actorService, awardService, directorService,
-					feedbackService, genreService, languageService, productionService, writerService);			
+					feedbackService, genreService, languageService, productionService, writerService);
 		} catch (ParseException e) {
 			e.printStackTrace();
 		}
-		
-		model.addAttribute("users",userService.getAll());
+
+		model.addAttribute("users", userService.getAll());
 
 		// GeneralTests.printAllMovies(movieService.getByName("Titanic"));
 		//
@@ -286,52 +305,70 @@ public class GeneralController {
 		}
 
 	}
-	
+
+	@GetMapping("/addmovie")
+	public String MovieForm(Model model) {
+		model.addAttribute("movie", new MovieTO());
+		return "addmovie";
+	}
+
+	@PostMapping("/addmovie")
+	public String processMovie(@ModelAttribute MovieTO movieto) {
+		try {
+			movieService.insertOne(movieto.getName(),movieto.getRunTime(),movieto.getBudget(),movieto.getBoxOffice(),movieto.getCensorRating(),movieto.getStory(),movieto.getReleaseDate());
+			return "success";
+		} catch (Exception e) {
+			return "showmessage";
+		}
+
+	}
+
 	@GetMapping("/insertdirector")
 	public String insertDirector(Model model) {
-		//model.addAttribute("writer", new WriterTO());
+		// model.addAttribute("writer", new WriterTO());
 		return "insertdirector";
 	}
 
 	@GetMapping("/addmaindetails")
 	public String addpages(Model model) {
-//		model.addAttribute("feedback", new FeedbackTO());
+		// model.addAttribute("feedback", new FeedbackTO());
 		return "addmaindetails";
 	}
-//	@GetMapping("/adduser")
-//	public String UserForm(Model model) {
-//		model.addAttribute("user", new UserTO());
-//		return "adduser";
-//	}
-//
-//	@PostMapping("/adduser")
-//	public String procesUser(@ModelAttribute UserTO userto) {
-//		try {
-//			writerService.insertOne(userto.getFname());
-//			return "success";
-//		} catch (Exception e) {
-//			return "showmessage";
-//		}
-//
-//	}
-//	
-//	
-//	
-//	@GetMapping("/updateuser")
-//	public String UserUpdateForm(Model model) {
-//		model.addAttribute("user", new WriterTO());
-//		return "updateuser";
-//	}
-//
-//	@PostMapping("/updateuser")
-//	public String processUpdateUser(@ModelAttribute UserTO userto) {
-//		try {
-//			writerService.insertOne(userto.getFname());
-//			return "success";
-//		} catch (Exception e) {
-//			return "showmessage";
-//		}
-//
-//	}
+
+	// @GetMapping("/adduser")
+	// public String UserForm(Model model) {
+	// model.addAttribute("user", new UserTO());
+	// return "adduser";
+	// }
+	//
+	// @PostMapping("/adduser")
+	// public String procesUser(@ModelAttribute UserTO userto) {
+	// try {
+	// writerService.insertOne(userto.getFname());
+	// return "success";
+	// } catch (Exception e) {
+	// return "showmessage";
+	// }
+	//
+	// }
+	//
+	//
+	//
+	// @GetMapping("/updateuser")
+	// public String UserUpdateForm(Model model) {
+	// model.addAttribute("user", new WriterTO());
+	// return "updateuser";
+	// }
+	//
+	// @PostMapping("/updateuser")
+	// public String processUpdateUser(@ModelAttribute UserTO userto) {
+	// try {
+	// writerService.insertOne(userto.getFname());
+	// return "success";
+	// } catch (Exception e) {
+	// return "showmessage";
+	// }
+	//
+	// }
 
 }

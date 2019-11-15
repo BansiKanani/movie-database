@@ -30,6 +30,10 @@ public class MovieTO {
 
 	}
 
+	public MovieTO() {
+		// TODO Auto-generated constructor stub
+	}
+
 	@Override
 	public String toString() {
 		return "MovieTO [id=" + id + ", name=" + name + ", runTime=" + runTime + ", budget=" + budget + ", boxOffice="
@@ -37,4 +41,5 @@ public class MovieTO {
 				+ "]";
 	}
 
+	
 }

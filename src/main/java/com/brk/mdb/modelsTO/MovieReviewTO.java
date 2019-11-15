@@ -24,4 +24,9 @@ public class MovieReviewTO {
 		return "MovieReviewTO [movie=(" + movie.getId() + ")" + movie.getName() + ", user=" + user.getId() + ")"
 				+ user.getFname() + ", rating=" + rating + ", comment=" + comment + "]";
 	}
+
+	public MovieReviewTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }

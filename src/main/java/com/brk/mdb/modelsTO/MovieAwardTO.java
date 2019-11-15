@@ -18,4 +18,9 @@ public class MovieAwardTO {
 		this.award = new AwardTO(ma.getAward());
 		this.date = ma.getDate();
 	}
+
+	public MovieAwardTO() {
+		super();
+		// TODO Auto-generated constructor stub
+	}
 }
