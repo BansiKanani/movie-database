@@ -335,40 +335,41 @@ public class GeneralController {
 		return "addmaindetails";
 	}
 
-	// @GetMapping("/adduser")
-	// public String UserForm(Model model) {
-	// model.addAttribute("user", new UserTO());
-	// return "adduser";
-	// }
-	//
-	// @PostMapping("/adduser")
-	// public String procesUser(@ModelAttribute UserTO userto) {
-	// try {
-	// writerService.insertOne(userto.getFname());
-	// return "success";
-	// } catch (Exception e) {
-	// return "showmessage";
-	// }
-	//
-	// }
-	//
-	//
-	//
+	@GetMapping("/adduser")
+	public String UserForm(Model model) {
+		model.addAttribute("user", new UserTO());
+		return "adduser";
+	}
+
+	@PostMapping("/adduser")
+	public String procesUser(@ModelAttribute UserTO userto) {
+		try {
+			userService.insertOne(userto.getFname(), userto.getLname(), userto.getEmail(), userto.getPhone(),
+					userto.getDob(), userto.getCity(), userto.getState(), userto.getCountry());
+			return "success";
+		} catch (Exception e) {
+			return "showmessage";
+		}
+
+	}
+
 	// @GetMapping("/updateuser")
 	// public String UserUpdateForm(Model model) {
-	// model.addAttribute("user", new WriterTO());
+	// model.addAttribute("user", new UserTO());
 	// return "updateuser";
 	// }
-	//
+
 	// @PostMapping("/updateuser")
 	// public String processUpdateUser(@ModelAttribute UserTO userto) {
 	// try {
-	// writerService.insertOne(userto.getFname());
+	// writerService.insertOne(userto.getFname(), userto.getLname(),
+	// userto.getEmail(), userto.getPhone(),
+	// userto.getDob(), userto.getCity(), userto.getState(), userto.getCountry());
 	// return "success";
 	// } catch (Exception e) {
 	// return "showmessage";
 	// }
-	//
+
 	// }
 
 }

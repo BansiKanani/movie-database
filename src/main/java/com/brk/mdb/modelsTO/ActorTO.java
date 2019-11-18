@@ -2,6 +2,8 @@ package com.brk.mdb.modelsTO;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.brk.mdb.models.Actor;
 
 import lombok.Data;
@@ -15,6 +17,7 @@ public class ActorTO {
 	private String city;
 	private String state;
 	private String country;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 
 	public ActorTO(Actor a) {

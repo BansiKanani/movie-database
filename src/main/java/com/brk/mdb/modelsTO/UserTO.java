@@ -5,6 +5,7 @@ import lombok.Data;
 import java.util.Date;
 
 import com.brk.mdb.models.User;
+import org.springframework.format.annotation.DateTimeFormat;
 
 @Data
 public class UserTO {
@@ -13,6 +14,7 @@ public class UserTO {
 	private boolean status;
 	private String fname;
 	private String lname;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date dob;
 	private String email;
 	private long phone;
@@ -21,8 +23,8 @@ public class UserTO {
 	private String country;
 
 	public UserTO(User u) {
-		this.id=u.getId();
-		this.status =u.isStatus();
+		this.id = u.getId();
+		this.status = u.isStatus();
 		this.fname = u.getFname();
 		this.lname = u.getLname();
 		this.dob = u.getDob();

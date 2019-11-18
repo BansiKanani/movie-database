@@ -2,6 +2,8 @@ package com.brk.mdb.modelsTO;
 
 import java.util.Date;
 
+import org.springframework.format.annotation.DateTimeFormat;
+
 import com.brk.mdb.models.Movie;
 
 import lombok.Data;
@@ -16,6 +18,7 @@ public class MovieTO {
 	private long boxOffice;
 	private String story;
 	private String censorRating;
+	@DateTimeFormat(pattern = "yyyy-MM-dd")
 	private Date releaseDate;
 
 	public MovieTO(Movie m) {
@@ -41,5 +44,4 @@ public class MovieTO {
 				+ "]";
 	}
 
-	
 }
