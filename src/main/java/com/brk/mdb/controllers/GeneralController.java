@@ -147,24 +147,31 @@ public class GeneralController {
 		return "moviesingle";
 	}
 
+
 	@GetMapping("/explore")
-	public String sayexplore() {
+	public String sayexplore1(Model model) {
+		List<GenreTO> search_Genre = genreService.getAll();
+		List<DirectorTO> search_Director = directorService.getAll();
+		model.addAttribute("movies", movieService.getAll());
+
+		model.addAttribute("Genre_array", search_Genre);
+		model.addAttribute("Director_array", search_Director);
+		// model.addAttribute("Filter",new FilterCriteriaTO());
 		return "explore";
+
 	}
 
-	// @GetMapping("/explore")
-	// public String sayexplore1(Model model) {
-	// List<GenreTO> search_Genre=genreService.getAll();
-	// List<DirectorTO>search_Director=directorService.getAll();
-	//
-	//
-	// model.addAttribute("Genre_array",search_Genre);
-	// model.addAttribute("Filter",new FilterCriteriaTO());
-	// return "explore";
-	//
-	//
-	// }
-
+//	@PostMapping("/explore")
+//	public String processDirector(@ModelAttribute MovieTO movieto) {
+//		try {
+//			movieService.getByName(movieto.getName());
+//			return "success";
+//		} catch (Exception e) {
+//			return "showmessage";
+//		}
+//
+//	}
+//
 	@GetMapping("/index")
 	public String indexPage(Model model) {
 		// for testing
