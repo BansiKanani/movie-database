@@ -98,6 +98,22 @@ public class GeneralController {
 		// return "usersprof";
 	}
 
+	@GetMapping("/userwish")
+	public String sayuserprof(Model model, HttpServletRequest req) {
+		long uid = Long.parseLong(req.getParameter("id"));
+		model.addAttribute("user", userService.getById(uid));
+
+		List<MovieTO> mto = userService.getWishlist(uid);
+
+		for (MovieTO movieTO : mto) {
+			System.out.println(movieTO);
+		}
+		model.addAttribute("wishlistArray", userService.getWishlist(uid));
+
+		// return "userprofile";
+		return "userwish";
+	}
+
 	@GetMapping("/actors")
 	public String sayactor(Model model) {
 		model.addAttribute("actors", actorService.getAll());

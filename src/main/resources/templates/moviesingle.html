@@ -280,7 +280,9 @@
 				</div>
 				<div class="col-md-8 col-sm-12 col-xs-12">
 					<div class="movie-single-ct main-content">
-						<h1 class="bd-hd">Skyfall: Quantum of Spectre <span>2015</span></h1>
+						<h1 class="bd-hd">
+							<p class="bd-hd" th:utext="${movie.name}"></p><span>2015</span>
+						</h1>
 						<div class="social-btn">
 							<a th:href="@{/#}" class="parent-btn"><i class="ion-heart"></i> Add to Favorite</a>
 							<div class="hover-bnt">
